@@ -2,6 +2,10 @@
 
 1. Clone
 
+```
+git clone git@github.com:Gustavo-Alves-Araujo/axoverse.git
+```
+
 2. Crie um ambiente de trabalho (branch)
 
 ```
