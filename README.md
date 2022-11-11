@@ -1,24 +1,36 @@
-# README
+## Como contribuir para o projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone
 
-Things you may want to cover:
+2. Crie um ambiente de trabalho (branch)
 
-* Ruby version
+```
+git checkout -b 'nome_do_ambiente'
+```
 
-* System dependencies
+3. Faça as alterações necessárias nesse ambiente
 
-* Configuration
+4. Salve as alterações quando estiver tudo ok
 
-* Database creation
+```
+git add .
+git commit -m 'mensagem
+```
 
-* Database initialization
+5. Faça o upload para o ambiente de trabalho na nuvem
 
-* How to run the test suite
+```
+git push origin 'nome_do_ambiente'
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+6. Acesse o repositorio no github
 
-* Deployment instructions
 
-* ...
+7. Clique em "Create Pull Request"
+
+8. Adicione os revisores e o texto
+
+9. Clique em criar
+
+10. Seja feliz
+
