@@ -1,6 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container d-flex">
         <%= link_to 'LOGO', root_path, class: "text-white"%>
+        <img src ="../../../assets/images/logoaxo.png">
         <div class="d-flex ">
             <% if user_signed_in? %>
                 <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %> 

@@ -1,4 +1,7 @@
-
-    <h1>APLICATIVO hahahhahhahaa</h1>
-    <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+<% if user_signed_in? %>
+    <h1>vc esta logado /h1>
+    
+<% else %>
+    <h1> vc n ta logado </h1>
+<% end %>
 
