@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
     <h1> vc esta logado </h1>
     <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+
+
 <% else %>
 <header class="cabecalho"> 
         <%= link_to root_path do %>
@@ -10,7 +12,7 @@
             <%= button_to 'Login', new_user_session_path, method: :get, class:'btn btn-danger' %>
             <%= link_to 'Registre-se', new_user_registration_path, method: :get, class: 'btn btn-primary'  %>
         </nav>
-    </header>
+</header>
      <main class="conteudo">
         <section class="conteudo-principal"> 
             <div class="conteudo-principal-escrito">
