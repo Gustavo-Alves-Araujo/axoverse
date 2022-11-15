@@ -1,6 +1,12 @@
 <% if user_signed_in? %>
     <h1>vc esta logado /h1>
-    
+<h5> <%= current_user.email %></h5>
+
+Pessoas que você pode conversar:
+
+<%= link_to 'Abrir chats', rooms_path%>
+
+
 <% else %>
     <h1> vc n ta logado </h1>
 <% end %>
