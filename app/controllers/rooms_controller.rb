@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
     sender = current_user.email
     receiver = params[:user]
     # room_name = "ROOM: #{sender}-#{receiver}" # not required
-
+    
     @room = Room.create(sender_email: sender, receiver_email: receiver)
   end
 

@@ -1,0 +1,5 @@
+<% if room.sender_email == current_user.email %>
+  Chat Aberto: <%= link_to room.receiver_email, room %> <br>
+<% else  %>
+  Chat Aberto: <%= link_to room.receiver_email, room%> <br>
+<% end %>
