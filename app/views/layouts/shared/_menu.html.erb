@@ -1,13 +1,17 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container d-flex">
         <%= link_to 'LOGO', root_path, class: "text-white"%>
+
+        <%= image_tag asset_path('logoaxo.png') %>
+        <%= image_tag asset_path('teste_subpasta/logoaxo') %>
+
         <div class="d-flex ">
             <% if user_signed_in? %>
-                <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %> 
+                <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
             <% else %>
                 <%= button_to 'Login', new_user_session_path, method: :get, class:'btn btn-danger' %>
                 <%= link_to 'Registre-se', new_user_registration_path, method: :get, class: 'btn btn-primary'  %>
-            <% end %> 
-        </div>  
+            <% end %>
+        </div>
     </div>
 </nav>
