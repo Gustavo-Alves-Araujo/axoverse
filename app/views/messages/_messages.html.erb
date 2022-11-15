@@ -1,0 +1,17 @@
+
+<div class="messages-container">
+  <h3>
+    <%= @contact %>
+  </h3>
+
+  <%messages.each do |message|%>
+    <div class="msg <%= current_user.email == message.user.email && 'msg-sent' || 'msg-received'%>" >
+    <h6 class="name"> <%= message.user.email %> </h6>
+    <h5><%= message.body %></h5>
+    </div>
+  <% end %>
+
+  <%= render 'messages/new_message', message: @message, room: @room%>
+</div>
+
+

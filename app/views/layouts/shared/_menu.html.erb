@@ -8,6 +8,7 @@
         <div class="d-flex ">
             <% if user_signed_in? %>
                 <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+                <%= link_to 'chats', rooms_path %>
             <% else %>
                 <%= button_to 'Login', new_user_session_path, method: :get, class:'btn btn-danger' %>
                 <%= link_to 'Registre-se', new_user_registration_path, method: :get, class: 'btn btn-primary'  %>

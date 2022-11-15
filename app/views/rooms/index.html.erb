@@ -6,12 +6,12 @@
     </div>
     <hr />
 
-   <div id="rooms">
-     <%= render @rooms %>
-   </div>
+  <div id="rooms">
+    <%= render @rooms %>
+  </div>
 
 
-    <h1>Lista de usuários para conversar</h1>
-    <% @users_to_chat_with.each do |user| %>
-      <%= render 'user_to_chat_with', user: user %><br>
-    <% end %>
+<h1>Lista de usuários para conversar</h1>
+  <% @users_to_chat_with.each do |user| %>
+  <%= render 'user_to_chat_with', user: user %><br>
+<% end %>

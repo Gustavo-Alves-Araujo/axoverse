@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+.messages-container {
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+}
+
+.msg {
+  color: white;
+  width: 50vw;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.msg-sent {
+  background-color: rgb(143, 209, 117);
+  align-self: flex-end;
+}
+
+.msg-received {
+  background-color: #fdf0fd;
+  align-self: flex-start;
+  color: black !important;
+}
+
+.msg-form {
+  margin-top: 40px;
+  width: 80%;
+}

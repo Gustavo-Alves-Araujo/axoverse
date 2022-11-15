@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_room, only: %i[show]
+  before_action :set_characters, only: %i[show]
 
   def index
     @room = Room.new
@@ -10,25 +12,21 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @single_room = Room.find(params[:id])
-
-    @room = Room.new
-
     @rooms = avaiable_rooms
 
     @message = Message.new
 
-    @messages = @single_room.message.order(created_at: :desc)
-
-    @users_to_chat_with = User.all_except(current_user)
+    @messages = @room.messages.order(created_at: :asc)
   end
 
   def create
     sender = current_user.email
     receiver = params[:user]
     # room_name = "ROOM: #{sender}-#{receiver}" # not required
-    
+
     @room = Room.create(sender_email: sender, receiver_email: receiver)
+
+    redirect_to room_path(@room)
   end
 
   private
@@ -40,4 +38,18 @@ class RoomsController < ApplicationController
   def room_where_user_is_receiver = Room.where(receiver_email: current_user_email)
 
   def current_user_email = current_user.email
+
+  def set_room
+   @room = Room.find(params[:id])
+  end
+
+  def set_characters
+    if @room.sender_email != current_user.email
+      @user = @room.receiver_email
+      @contact = @room.sender_email
+    else
+      @user = @room.sender_email
+      @contact = @room.receiver_email
+    end
+  end
 end
