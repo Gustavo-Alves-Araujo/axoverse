@@ -22,9 +22,17 @@
     text-decoration: none;
 }
 
-/*.paidetudo {
-   }
-*/
+
+/*body{
+   width: 100vw;
+   height: 100vh;
+   background-image: linear-gradient(to top, #575387, #5d5f95, #636ba3, #6977b1, #6e84bf, #6f85c7, #7086d0, #7287d8, #787bda, #836cd9, #925bd4, #a244cb);
+} */
+
+.login {
+   background-color: black;
+}
+
 .inicio {
    font-size: 100%;
    background: linear-gradient(45deg, #382D42, #D69563, #4D4A69, #74AE9C, #A379B5, #B38AD1, #D5BEE5);
