@@ -2,8 +2,8 @@
     <h1> vc esta logado </h1>
     <%= button_to "Sair", destroy_user_session_path, method: :delete %>
 
-
 <% else %>
+<div class="inicio">
 <header class="cabecalho"> 
         <%= link_to root_path do %>
             <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
@@ -35,5 +35,6 @@
       <!-- <img class="rodape-imagem" src="logoaxo.png" id="rodape"> --> 
       <p class="gradient"> Axoverse </p>
     </footer>
+</div>
 <% end %>
 
