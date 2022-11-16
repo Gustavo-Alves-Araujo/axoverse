@@ -1,14 +1,23 @@
-<h2><%= t('.sign_in') %></h2>
+<div class="loginview">
+
+<h2 class="loginview-titulo"><%= t('.sign_in')%></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email %> <br/>
+      <div class="loginview-input">
+        <i class="fa-solid fa-envelope"></i>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Exemplo@exemplo.com" %>
+      </div>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="loginview-input">
+        <i class="fa-solid fa-lock"></i>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password" %>
+      </div>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -18,9 +27,11 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="loginview-botao">
     <%= f.submit t('.sign_in') %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
