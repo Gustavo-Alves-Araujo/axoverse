@@ -1,20 +1,16 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
  @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+
+/*
+-
+-
+- Application - html
+-
+-
+
+-
+*/
  *{
     margin: 0;
     padding: 0;
@@ -22,19 +18,24 @@
     text-decoration: none;
 }
 
+body {
 
-/*body{
-   width: 100vw;
    height: 100vh;
-   background-image: linear-gradient(to top, #575387, #5d5f95, #636ba3, #6977b1, #6e84bf, #6f85c7, #7086d0, #7287d8, #787bda, #836cd9, #925bd4, #a244cb);
-} */
-
-.login {
-   background-color: black;
+   background-image: linear-gradient(to top, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
 }
 
-.inicio {
-   font-size: 100%;
+/*
+-
+-
+- Index.html (se o usuario não estiver logado)
+-
+-
+
+-
+*/
+
+.home {
+   
    background: linear-gradient(45deg, #382D42, #D69563, #4D4A69, #74AE9C, #A379B5, #B38AD1, #D5BEE5);
    background-size: 400% 400%;
    animation: colors 20s ease infinite;
@@ -54,6 +55,7 @@
 
    }
 }
+
 .cabecalho {
     display: flex;
     flex-direction: row;
@@ -65,7 +67,6 @@
  
 
  .cabecalho-logo {
-    padding-right:48%;
     height: 100px;
     padding-right: 640px;
 
@@ -128,7 +129,7 @@
 
 .conteudo-principal-imagem {
    height: 350px;
-   padding-right: 10px;
+
 }
 
 .conteudo-secundario {
@@ -161,7 +162,7 @@
    border-top: 0.4px solid #FFF2E7;
 }
 
-.gradient {
+.rodape-titulo {
    background-image: radial-gradient(circle at 50% -20.71%, #badbff 0, #c2daff 6.25%, #c9d8ff 12.5%, #d0d6ff 18.75%, #d8d4ff 25%, #dfd2fe 31.25%, #e6d0fa 37.5%, #eccff6 43.75%, #f2cdf2 50%, #f7cced 56.25%, #fccbe8 62.5%, #ffcae2 68.75%, #ffc9dd 75%, #ffc9d7 81.25%, #ffc9d1 87.5%, #ffc9cc 93.75%, #ffcac6 100%);
    background-clip: text;
    -webkit-background-clip: text;
@@ -173,4 +174,96 @@
    padding-left: 24%;
    padding-right: 20%;
  }
+
+ /*
+-
+-
+- Views geradas do devise
+-
+-
+
+-
+*/
+
+/*
+   Tela de login
+*/
+
+ .loginview {
+   position: relative;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: white;
+   border-radius: 40px;
+   padding: 60px;
+   width: min-content;
+   align-items: center;
+   color: #2b343b;
+}
+
+.loginview-titulo {
+   font-family: 'Righteous', cursive;
+   font-weight: 400;
+   font-size: 64px;
+   color: black;
+   margin-bottom: 10%;
+}
+
+.loginview-input {
+   min-width: 280px;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+
+}
+
+.loginview-input i {
+   font-size: 1.2em;
+   padding: 5px;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.loginview-input input {
+   width: 80%;
+   border: none;
+   outline: none;
+   font-family: 'Righteous', cursive ;
+   transform: translateY(-10%);
+   color: #2b343b;
+}
+
+.loginview-botao {
+   margin-top: 10%;
+   width: 100%;
+   text-align: center;
+}
+
+.loginview-botao input {
+   font-family: 'Righteous', cursive;
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   width: 100%;
+   height: 40px;
+   border: none;
+   font-size: 1.2em;
+   color: white;
+   border-radius: 20px;
+   outline: none;
+   cursor: pointer;
+}
+.cadastroview-titulo {
+   font-family: 'Righteous', cursive;
+   font-weight: 400;
+   font-size: 42px;
+   color: black;
+   margin-bottom: 10%;
+}
+
+
+
+
 
