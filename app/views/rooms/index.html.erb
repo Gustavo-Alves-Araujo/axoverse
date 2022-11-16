@@ -1,0 +1,17 @@
+<div id="chatroom_container" class="row bg-dark text-light">
+  <div id="side_panel" class="col-md-4 col-sm-4">
+    <h5> <%= current_user.email %></h5>
+    <%= turbo_stream_from "users" %>
+    <div id="users">
+    </div>
+    <hr />
+
+  <div id="rooms">
+    <%= render @rooms %>
+  </div>
+
+
+<h1>Lista de usuários para conversar</h1>
+  <% @users_to_chat_with.each do |user| %>
+  <%= render 'user_to_chat_with', user: user %><br>
+<% end %>

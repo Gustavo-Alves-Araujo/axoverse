@@ -1,3 +1,9 @@
+ adiciona_chat_entre_usuarios
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+*{
+      margin: 0;
+
 
  @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
@@ -13,6 +19,7 @@
 */
  *{
     margin: 0;
+main
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
@@ -42,7 +49,7 @@ body {
 }
 
 
- 
+
 @keyframes colors {
    0% {
       background-position: 0% 50%;
@@ -61,10 +68,10 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 0px;  
-    border-bottom: 0.4px solid #FFF2E7;   
+    padding: 0px;
+    border-bottom: 0.4px solid #FFF2E7;
  }
- 
+
 
  .cabecalho-logo {
     height: 100px;
@@ -175,6 +182,44 @@ body {
    padding-right: 20%;
  }
 
+adiciona_chat_entre_usuarios
+
+.messages-container {
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+}
+
+.msg {
+  color: white;
+  width: 50vw;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.msg-sent {
+  background-color: rgb(143, 209, 117);
+  align-self: flex-end;
+}
+
+.msg-received {
+  background-color: #fdf0fd;
+  align-self: flex-start;
+  color: black !important;
+}
+
+.msg-form {
+  margin-top: 40px;
+  width: 80%;
+}
+=======
  /*
 -
 -
@@ -262,6 +307,7 @@ body {
    color: black;
    margin-bottom: 10%;
 }
+
 
 
 
