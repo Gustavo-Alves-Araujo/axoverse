@@ -1,19 +1,25 @@
 <% if user_signed_in? %>
-    <h1>vc esta logado /h1>
-<h5> <%= current_user.email %></h5>
+<header class="cabecalho"> 
+        <%= link_to root_path do %>
+            <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
+        <% end %>
+        <nav class="cabecalho-menu">
+            <h5 class="usuarioemail"> <%= current_user.email %> </h5>
+            <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
+            
+        </nav>
+</header>
 
-Pessoas que você pode conversar:
 
-<%= link_to 'Abrir chats', rooms_path%>
+<div class="meudeus">
+<p class="loginview-titulos"> Pessoas que você pode conversar: </p>
 
+<%= link_to 'Abrir chats', rooms_path, class:'meudeus-botao'%>
 
-    <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+ </div>
 
 
 <% else %>
-
-<div class="inicio">
-<header class="cabecalho">
 
 <div class="home">
 <header class="cabecalho"> 
@@ -22,8 +28,8 @@ Pessoas que você pode conversar:
             <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
         <% end %>
         <nav class="cabecalho-menu">
-            <%= button_to 'Login', new_user_session_path, method: :get, class:'btn btn-danger' %>
-            <%= link_to 'Registre-se', new_user_registration_path, method: :get, class: 'btn btn-primary'  %>
+            <%= button_to 'Login', new_user_session_path, method: :get, class:'cabecalho-menu-botao-1' %>
+            <%= button_to 'Registre-se', new_user_registration_path, method: :get, class: 'cabecalho-menu-botao-2'  %>
         </nav>
 </header>
      <main class="conteudo">
@@ -45,13 +51,7 @@ Pessoas que você pode conversar:
     </main>
 
     <footer class="rodape">
-
-      <!-- <img class="rodape-imagem" src="logoaxo.png" id="rodape"> -->
-      <p class="gradient"> Axoverse </p>
-
-      <!-- <img class="rodape-imagem" src="logoaxo.png" id="rodape"> --> 
       <p class="rodape-titulo"> Axoverse </p>
-
     </footer>
 </div>
 <% end %>
