@@ -1,17 +1,27 @@
-<div id="chatroom_container" class="row bg-dark text-light">
-  <div id="side_panel" class="col-md-4 col-sm-4">
-    <h5> <%= current_user.email %></h5>
-    <%= turbo_stream_from "users" %>
-    <div id="users">
-    </div>
-    <hr />
+<header class="cabecalho"> 
+        <%= link_to root_path do %>
+            <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
+        <% end %>
+        <h5> <%= current_user.email %></h5>
+        <nav class="cabecalho-menu">
+          <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+        </nav>
+</header>
 
-  <div id="rooms">
+
+<div class="loginview">
+
+<div class="container">
+  <div id="rooms" class="chatOpened">
     <%= render @rooms %>
   </div>
 
+  <div class="listUsers">
+    <h1> Lista de usuários para conversar </h1>
+        <% @users_to_chat_with.each do |user| %>
+        <%= render 'user_to_chat_with', user: user, class: 'users' %>
+  </div>
+</div>
 
-<h1>Lista de usuários para conversar</h1>
-  <% @users_to_chat_with.each do |user| %>
-  <%= render 'user_to_chat_with', user: user %><br>
 <% end %>
+</div>
