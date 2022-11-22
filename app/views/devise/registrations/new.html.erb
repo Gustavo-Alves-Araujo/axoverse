@@ -1,40 +1,50 @@
-<div class="registration-view">
-<h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
+<div class="devise">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="devise-conteudo">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <div class="registration-view-input">
-        <i class="fa-solid fa-envelope"></i>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Exemplo@exemplo.com" %>
+    <div class="devise-conteudo-imagem">
+      <%= image_tag asset_path('axoregistro.png'), class:'devise-conteudo-imagem'%>
     </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-      <div class="registration-view-input">
-        <i class="fa-solid fa-lock"></i>
-        <%= f.password_field :password, autocomplete: "new-password", placeholder:"password" %>
-      </div>
-  </div>
+    <div class="devise-conteudo-login">
+      <div class="devise-conteudo-login-view">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <div class="registration-view-input">
-        <i class="fa-solid fa-lock"></i>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"password" %>
-    </div>
-  </div>
+        <h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
 
-  <div class="registration-view-botao">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
-</div>
+          <div class="field">
+            <%= f.label :email %><br />
+            <div class="registration-view-input">
+                <i class="fa-solid fa-envelope"></i>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email@exemplo.com" %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+            <% end %><br />
+              <div class="registration-view-input">
+                <i class="fa-solid fa-lock"></i>
+                <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
+              </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <div class="registration-view-input">
+                <i class="fa-solid fa-lock"></i>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password" %>
+            </div>
+          </div>
+
+          <div class="login-view-botao">
+            <%= f.submit t('.sign_up') %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+        </div>
