@@ -1,6 +1,6 @@
 <%= form_with( model: @room, remote: true, class: 'd-flex usermail') do |f|%>
   <%= user.email %>
   <%= hidden_field_tag 'user', user.email  %>
-  <%= f.submit 'conversar', data: {disable_with: false }, class:'botao-conversa'%>
+  <%= f.submit 'conversar', data: {disable_with: false }%>
 <% end %>
 

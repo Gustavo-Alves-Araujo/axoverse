@@ -1,3 +1,5 @@
+<div class="murilo">
+
 <header class="cabecalho"> 
         <%= link_to root_path do %>
             <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
@@ -9,17 +11,15 @@
 </header>
 
 
-<div class="loginview">
-
-<div class="container">
-  <div id="rooms" class="chatOpened">
+<div>
+  <div>
     <%= render @rooms %>
   </div>
 
-  <div class="listUsers">
+  <div>
     <h1> Lista de usuários para conversar </h1>
-        <% @users_to_chat_with.each do |user| %>
-        <%= render 'user_to_chat_with', user: user, class: 'users' %>
+      <% @users_to_chat_with.each do |user| %>
+      <%= render 'user_to_chat_with', user: user %>
   </div>
 </div>
 
