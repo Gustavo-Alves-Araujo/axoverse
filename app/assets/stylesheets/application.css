@@ -56,7 +56,30 @@ body {
 -
 */
 
+.cabecalho-menu-botao-sair {
+   font-family: 'Sarala', sans-serif;
+   background-color: rgba(255, 255, 255, 0);
+   width: 150px;
+   height: 40px;
+   border: solid lightgray;
+   border-radius:20px ;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   font-size: 19px;
+   color: #ffffff;
+ }
 
+ .cabecalho-menu-botao-editar {
+   text-decoration: none;
+   background-color: hwb(83 17% 38% / 0);
+   width: 150px;
+   height: 40px;
+   border: solid lightgray;
+   border-radius:20px ;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   font-family: 'Sarala', sans-serif;
+   font-size: 19px;
+   color: #ffffff;
+ }
 
 
 
@@ -104,7 +127,7 @@ body {
 
 
  .cabecalho-logo {
-    height: 100px;
+    height: 80px;
     padding-right: 520px;
 
 }
@@ -114,7 +137,7 @@ body {
     gap: 38px;
  }
  
- .cabecalho-menu-botao-1 {
+ .cabecalho-menu-botao-login {
    font-family: 'Sarala', sans-serif;
    background-color: rgba(255, 255, 255, 0);
    width: 140px;
@@ -127,7 +150,7 @@ body {
    color: #ffffff;
  }
 
- .cabecalho-menu-botao-2 {
+ .cabecalho-menu-botao-criar {
    background-color: hwb(83 17% 38% / 0);
    width: 160px;
    height: 50px;
@@ -303,6 +326,15 @@ body {
    margin-left: 20%;
 }
 
+.login-view-titulo-senha {
+   font-family: 'Sarala', sans-serif;
+   font-weight: 400;
+   font-size: 40px;
+   color: black;
+   margin-bottom: 10%;
+   margin-left: 0%;
+}
+
 .login-view-input {
    min-width: 280px;
    border-radius: 22px;
@@ -325,7 +357,7 @@ body {
    width: 80%;
    border: none;
    outline: none;
-   font-family: 'Righteous', cursive ;
+   font-family: 'Sarala', sans-serif;
    transform: translateY(-10%);
    color: #2b343b;
 }
@@ -375,8 +407,6 @@ body {
 }
 
 
-
-
 .registration-view-titulo {
    font-family: 'Righteous', cursive;
    font-weight: 400;
@@ -406,6 +436,33 @@ body {
 }
 
 .registration-view-input input {
+   width: 80%;
+   border: none;
+   outline: none;
+   font-family: 'Righteous', cursive ;
+   transform: translateY(-10%);
+   color: #2b343b;
+}
+
+.registration-view-input-name {
+   min-width: 280px;
+   height: 43px;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+}
+
+.registration-view-input-name i {
+   font-size: 1.2em;
+   padding: 5px;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+ 
+.registration-view-input-name input {
    width: 80%;
    border: none;
    outline: none;
