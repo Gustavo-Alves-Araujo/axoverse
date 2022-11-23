@@ -14,6 +14,9 @@
 <%= link_to "Editar usuário", edit_user_registration_path, class:"botaozinho" %>
    <h5 class="usuarioemail"> <%= current_user.email %> </h5>
    <%= current_user.name %>
+   <% if current_user.profile_picture.attached?%>
+   foto do cidadão: <%= image_tag current_user.profile_picture %>
+<% end %>
 
 <% else %>
 
