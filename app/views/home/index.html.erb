@@ -4,13 +4,16 @@
             <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
         <% end %>
         <nav class="cabecalho-menu">
-            <h5 class="usuarioemail"> <%= current_user.email %> </h5>
-            <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
-            
+            <%= button_to "Editar usuário", edit_user_registration_path, method: :get, class:"cabecalho-menu-botao-editar" %>
+            <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'cabecalho-menu-botao-sair' %>
         </nav>
 </header>
 
 
+
+<%= link_to "Editar usuário", edit_user_registration_path, class:"botaozinho" %>
+   <h5 class="usuarioemail"> <%= current_user.email %> </h5>
+   <%= current_user.name %>
 
 <% else %>
 
@@ -21,8 +24,8 @@
             <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
         <% end %>
         <nav class="cabecalho-menu">
-            <%= button_to 'Login', new_user_session_path, method: :get, class:'cabecalho-menu-botao-1' %>
-            <%= button_to 'Registre-se', new_user_registration_path, method: :get, class: 'cabecalho-menu-botao-2'  %>
+            <%= button_to 'Login', new_user_session_path, method: :get, class:'cabecalho-menu-botao-login' %>
+            <%= button_to 'Registre-se', new_user_registration_path, method: :get, class: 'cabecalho-menu-botao-criar'  %>
         </nav>
 </header>
      <main class="conteudo">
