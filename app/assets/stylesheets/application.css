@@ -23,7 +23,7 @@ body {
    max-width: 100vw;
    height: 100vh;
    background: linear-gradient(45deg, #382D42, #d69563, #4d4a69, #74AE9C, #A379B5, #D5BEE5);
-   background-size: 100% 100%;
+   background-size: 400% 400%;
    animation: colors 27s ease infinite;
    background-repeat: no-repeat;
 }
@@ -243,11 +243,14 @@ body {
    font-weight: 300;
    font-size: 20px;
    color: #FFF2E7;
+
 }
 
 .rodape {
+   
+   border-top: 0.4px solid #FFF2E7; 
    padding: 32px;
-   border-top: 0.4px solid #FFF2E7;
+  
 }
 
 .rodape-titulo {
@@ -578,4 +581,66 @@ body {
 
  
  
+
+/* 
+
+
+
+
+
+Responsividade 
+
+
+
+
+
+*/
+
+
+@media screen and (min-width: 1366px){
+      .rodape {
+         position: relative;
+         margin-right: 13%;
+         margin-left: 13%;
+      }
+      .conteudo-secundario-titulo {
+         position: relative;
+         margin-right: 15%;
+         margin-left: 15%;
+      }
+      .conteudo-secundario {
+         position: relative;
+         margin-right: 20%;
+         margin-left: 15%;
+      }
+
+   .devise{
+
+   left: 35%;
+   }
+
+
+
+      .devise-conteudo-login-view {
+         margin-right: 30%;
+         background: white;
+         border-radius: 40px;
+         box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+         padding: 130px;
+         width: min-content;
+         align-items: center;
+         color: #2b343b;
+      
+    }
+    .devise-conteudo {
+font-size: 20px;
+    }
+
+    .devise-conteudo-imagem{
+      height: 800px;
+      margin-left: 0px;
+
+
+   }
+   
 
