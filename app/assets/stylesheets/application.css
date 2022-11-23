@@ -23,7 +23,7 @@ body {
    max-width: 100vw;
    height: 100vh;
    background: linear-gradient(45deg, #382D42, #d69563, #4d4a69, #74AE9C, #A379B5, #D5BEE5);
-   background-size: 400% 400%;
+   background-size: 100% 100%;
    animation: colors 27s ease infinite;
    background-repeat: no-repeat;
 }
