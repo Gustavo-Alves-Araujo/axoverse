@@ -15,6 +15,14 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
+            <%= f.label :profile_picture %><br />
+            <div class="registration-view-input">
+                <i class="fa-solid fa-envelope"></i>
+                <%= f.file_field :profile_picture %>
+            </div>
+          </div>
+
+          <div class="field">
             <%= f.label :email %><br />
             <div class="registration-view-input">
                 <i class="fa-solid fa-envelope"></i>
