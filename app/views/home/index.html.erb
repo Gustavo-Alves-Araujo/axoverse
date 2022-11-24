@@ -1,37 +1,36 @@
 <% if user_signed_in? %>
-<header class="cabecalho"> 
-        <%= link_to root_path do %>
-            <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
-        <% end %>
-        <nav class="cabecalho-menu">
-            <%= button_to "Editar usuário", edit_user_registration_path, method: :get, class:"cabecalho-menu-botao-editar" %>
-            <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'cabecalho-menu-botao-sair' %>
-        
-        <div class="cabecalho-menu-perfil"> #devise
-        <div class="cabecalho-menu-perfil-imagem"> #profile
-        <%= image_tag current_user.profile_picture, class:"imagem-perfil" %>
+    <div class="cama">
+        <div class="actiom">
+            <div class="profile" onclick="menuToggle();">
+                <%= image_tag current_user.profile_picture %>
+            </div>
+
+            <div class="menu">
+               <h3 class="menu-titulo"> <%= current_user.name %> </h3>
+                <ul>
+                    <li><i class="fa-solid fa-user"></i> <a href="/profile"> Meu Perfil</a></li>
+                    <li><i class="fa-solid fa-user-pen"></i> <%= link_to "Editar usuário", edit_user_registration_path %></li>
+                    <li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <a href="#">Configurações</a></li>
+                    <li><i class="fa-solid fa-circle-question"></i> <a href="#">Ajude-me</a></li>
+                    <li><i class="fa-solid fa-right-from-bracket"></i> <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'botao-sair' %></li>
+                </ul>
+            </div>
         </div>
-        <div class="perfil">
-        <%= current_user.name %>
-        <ul>
-            <li><i class="fa-solid fa-user"></i> <a href="#">Meu Perfil</a></li>
-            <li><i class="fa-solid fa-user-pen"> </i><a href="#">Editar Perfil</a></li>
-            <li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <a href="#">Configurações</a></li>
-            <li><i class="fa-solid fa-circle-question"></i> <a href="#">Ajude-me</a></li>
-            <li><i class="fa-solid fa-right-from-bracket"></i> <a href="#">Sair</a></li>
-        </ul>
-        </div>
-    </nav>
-</header>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu')
+                toggleMenu.classList.toggle('active')
+            }
+        </script>
+    </div>
 
 
 
-<%= link_to "Editar usuário", edit_user_registration_path, class:"botaozinho" %>
+
    <h5 class="usuarioemail"> <%= current_user.email %> </h5>
    <%= current_user.name %>
-   <% if current_user.profile_picture.attached?%>
-   foto do cidadão: <%= image_tag current_user.profile_picture %>
-<% end %>
+
+  
 
 <% else %>
 

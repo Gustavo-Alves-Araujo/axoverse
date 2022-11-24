@@ -13,9 +13,8 @@
 */
 
  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
     text-decoration: none;
 }
 
@@ -56,36 +55,19 @@ body {
 -
 */
 
-.cabecalho-menu-botao-sair {
-   font-family: 'Sarala', sans-serif;
-   background-color: rgba(255, 255, 255, 0);
-   width: 150px;
-   height: 40px;
-   border: solid lightgray;
-   border-radius:20px ;
-   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
-   font-size: 19px;
-   color: #ffffff;
- }
 
- .cabecalho-menu-botao-editar {
-   text-decoration: none;
-   background-color: hwb(83 17% 38% / 0);
-   width: 150px;
-   height: 40px;
-   border: solid lightgray;
-   border-radius:20px ;
-   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
-   font-family: 'Sarala', sans-serif;
-   font-size: 19px;
-   color: #ffffff;
- }
 
-.cabecalho-menu-perfil {
+
+.actiom {
    position: fixed;
+   top: 20px;
+   right: 50px;
+
 }
 
-.cabecalho-menu-perfil-imagem {
+
+.profile {
+   border: #FFF2E7 solid 3px;
    position: relative;
    width: 60px;
    height: 60px;
@@ -94,7 +76,7 @@ body {
    cursor: pointer;
 }
 
-.imagem-perfil {
+.profile img {
    position: absolute;
    top: 0;
    left: 0;
@@ -103,16 +85,91 @@ body {
    object-fit: cover;
 }
 
-.perfil {
+.menu{
    position: absolute;
    top: 80px;
    right: -10px;
    padding: 10px 20px;
    background: #ffffff;
-   width: 200px;
-   box-sizing: 0 5px 25px (0,0,0,0.1);
+   width: 270px;
+   box-sizing: 0 5px 25px rgba(0,0,0,0.1);
    border-radius: 15px;
    transition: 0.5s;
+   visibility: hidden;
+   opacity: 0;
+}
+
+.actiom .menu.active {
+   visibility: visible;
+   opacity: 1;
+}
+
+.actiom .menu::before {
+   content: '';
+   position: absolute;
+   top: -5px;
+   right: 28px;
+   width: 20px;
+   height: 20px;
+   background: #fff;
+   transform: rotate(45deg);
+}
+
+.menu-titulo {
+   width: 100%;
+   text-align: center;
+   font-size: 18px;
+   padding: 20px 0;
+   font-weight: 500;
+   font-size: 18px;
+   color: #555;
+   line-height: 1.2em;
+}
+
+.actiom .menu ul li {
+   width: 85%;
+   list-style: none;
+   padding: 10px;
+   border-top: 1px solid rgba(182, 174, 174, 0.5);
+   display: flex;
+   align-items: center;
+}
+
+.actiom .menu ul li i {
+   max-width: 20px;
+   margin-right: 10px;
+   opacity: 0.5;
+   transition: 0.5s;
+}
+
+.menu i {
+   font-size: 1.2em;
+   background: -webkit-linear-gradient(45deg, #8405ab, #710e7a);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.actiom .menu ul li:hover img {
+   opacity: 1;
+}
+
+.actiom .menu ul li a {
+   display: inline-block;
+   text-decoration: none;
+   color: #555;
+   font-weight: 500;
+   transition: 0.5s;
+}
+
+.actiom .menu ul li:hover a{
+   color: #9681be;
+}
+
+.botao-sair {
+   border: none;
+   background: none;
+   text-decoration: none;
 }
 
 /*
@@ -676,3 +733,4 @@ font-size: 20px;
    }
    
 
+}
