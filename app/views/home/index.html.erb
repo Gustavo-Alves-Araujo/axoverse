@@ -1,12 +1,11 @@
 <% if user_signed_in? %>
-    <div class="cama">
         <div class="actiom">
-            <div class="profile" onclick="menuToggle();">
+            <div class="profile-settings" onclick="menuToggle();">
                 <%= image_tag current_user.profile_picture %>
             </div>
 
-            <div class="menu">
-               <h3 class="menu-titulo"> <%= current_user.name %> </h3>
+            <div class="menu-perfil">
+               <h3 class="menu-perfil-titulo"> <%= current_user.name %> </h3>
                 <ul>
                     <li><i class="fa-solid fa-user"></i> <a href="/profile"> Meu Perfil</a></li>
                     <li><i class="fa-solid fa-user-pen"></i> <%= link_to "Editar usuário", edit_user_registration_path %></li>
@@ -18,19 +17,102 @@
         </div>
         <script>
             function menuToggle(){
-                const toggleMenu = document.querySelector('.menu')
+                const toggleMenu = document.querySelector('.menu-perfil')
                 toggleMenu.classList.toggle('active')
             }
         </script>
-    </div>
 
+    <div class="container">
+			<div class="side">
+				<div class="header">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/64.jpg" alt="" />
+					</div>
+					<div class="title">Meu perfil</div>
+				</div>
+				<div class="menu">
+					<ul>
+						<li>Matches</li>
+						<li class="active">Mensagens</li>
+					</ul>
+				</div>
+				<div class="messages">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/38.jpg" alt="" />
+					</div>
+					<div class="message">
+						<div class="user">Caroline</div>
+						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/39.jpg" alt="" />
+					</div>
+					<div class="message">
+						<div class="user">Caroline</div>
+						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/40.jpg" alt="" />
+					</div>
+					<div class="message">
+						<div class="user">Caroline</div>
+						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/41.jpg" alt="" />
+					</div>
+					<div class="message">
+						<div class="user">Caroline</div>
+						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/42.jpg" alt="" />
+					</div>
+					<div class="message">
+						<div class="user">Caroline</div>
+						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="card">
+					<div class="user">
+						<img
+							class="user"
+							src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80"
+							alt=""
+						/>
+						<div class="profile">
+							<div class="name">Rafaela <span>20</span></div>
+							<div class="local">
+								<i class="fas fa-map-marker-alt"></i>
+								<span>a 20 quilômetros daqui</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="buttons">
+					<div class="no">
+						<i class="fas fa-times"></i>
+					</div>
+					<div class="star">
+						<i class="fas fa-star fa"></i>
+					</div>
+					<div class="heart">
+						<i class="fas fa-heart"></i>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-
-   <h5 class="usuarioemail"> <%= current_user.email %> </h5>
-   <%= current_user.name %>
-
-  
 
 <% else %>
 
