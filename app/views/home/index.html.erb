@@ -15,6 +15,7 @@
                 </ul>
             </div>
         </div>
+
         <script>
             function menuToggle(){
                 const toggleMenu = document.querySelector('.menu-perfil')
@@ -22,84 +23,87 @@
             }
         </script>
 
-    <div class="container">
-			<div class="side">
-				<div class="header">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/64.jpg" alt="" />
+		<div class="usi-container"> 
+			<div class="usi-side">
+				<div class="usi-header">
+					<div class="usi-side-avatar">
+						<%= image_tag current_user.profile_picture %>
 					</div>
-					<div class="title">Meu perfil</div>
+					<div class="usi-title">
+						<%= current_user.name %>
+					</div>				
 				</div>
-				<div class="menu">
+				<div class="usi-menu">
 					<ul>
 						<li>Matches</li>
-						<li class="active">Mensagens</li>
+						<li class="usi-active">Chats</li>
 					</ul>
 				</div>
-				<div class="messages">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/38.jpg" alt="" />
+
+                <div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('gabi.jpg')%>
 					</div>
-					<div class="message">
-						<div class="user">Caroline</div>
-						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-					</div>
-				</div>
-				<div class="messages">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/39.jpg" alt="" />
-					</div>
-					<div class="message">
-						<div class="user">Caroline</div>
-						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					<div class="usi-friend">
+						<div class="usi-user">Gabi</div>
+						<div class="usi-text">Seu frango</div>
 					</div>
 				</div>
-				<div class="messages">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/40.jpg" alt="" />
+
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('luan.jpg')%>
 					</div>
-					<div class="message">
-						<div class="user">Caroline</div>
-						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-					</div>
-				</div>
-				<div class="messages">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/41.jpg" alt="" />
-					</div>
-					<div class="message">
-						<div class="user">Caroline</div>
-						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					<div class="usi-friend">
+						<div class="usi-user">Luan</div>
+						<div class="usi-text">To fumando um nargas</div>
 					</div>
 				</div>
-				<div class="messages">
-					<div class="avatar">
-						<img src="https://randomuser.me/api/portraits/women/42.jpg" alt="" />
+
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('leticia.jpg')%>
 					</div>
-					<div class="message">
-						<div class="user">Caroline</div>
-						<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
+					<div class="usi-friend">
+						<div class="usi-user">Leticia</div>
+						<div class="usi-text">To fumando um chá, com a seda preta</div>
+					</div>
+				</div>
+
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('murilo.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Murilo</div>
+						<div class="usi-text">sou bonito sou gostoso jogo bola e danço</div>
+					</div>
+				</div>
+
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('laura.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Laura</div>
+						<div class="usi-text">Vamo vavas</div>
 					</div>
 				</div>
 			</div>
-			<div class="content">
-				<div class="card">
-					<div class="user">
-						<img
-							class="user"
-							src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80"
-							alt=""
-						/>
-						<div class="profile">
-							<div class="name">Rafaela <span>20</span></div>
-							<div class="local">
-								<i class="fas fa-map-marker-alt"></i>
-								<span>a 20 quilômetros daqui</span>
+			<div class="usi-content">
+				<div class="usi-card">
+					<div class="usi-user-recomendado">
+						<%= image_tag asset_path('carol.jpg'), class:'usi-user-recomendado'%>
+						<div class="usi-user-recomendado-profile">
+							<div class="usi-user-recomendado-name">Carol <span>18</span> </div>
+							<div class="usi-user-recomendado-local">
+								<i class="fas fa-map-marker alt"></i>
+								<span>A 160 quilômetros daqui</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="buttons">
+				<div class="usi-buttons">
 					<div class="no">
 						<i class="fas fa-times"></i>
 					</div>
@@ -110,10 +114,8 @@
 						<i class="fas fa-heart"></i>
 					</div>
 				</div>
-			</div>
+            </div>
 		</div>
-
-
 <% else %>
 
 <div class="home">
