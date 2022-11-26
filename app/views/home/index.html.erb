@@ -1,12 +1,11 @@
 <% if user_signed_in? %>
-    <div class="cama">
         <div class="actiom">
-            <div class="profile" onclick="menuToggle();">
+            <div class="profile-settings" onclick="menuToggle();">
                 <%= image_tag current_user.profile_picture %>
             </div>
 
-            <div class="menu">
-               <h3 class="menu-titulo"> <%= current_user.name %> </h3>
+            <div class="menu-perfil">
+               <h3 class="menu-perfil-titulo"> <%= current_user.name %> </h3>
                 <ul>
                     <li><i class="fa-solid fa-user"></i> <a href="/profile"> Meu Perfil</a></li>
                     <li><i class="fa-solid fa-user-pen"></i> <%= link_to "Editar usuário", edit_user_registration_path %></li>
@@ -16,22 +15,107 @@
                 </ul>
             </div>
         </div>
+
         <script>
             function menuToggle(){
-                const toggleMenu = document.querySelector('.menu')
+                const toggleMenu = document.querySelector('.menu-perfil')
                 toggleMenu.classList.toggle('active')
             }
         </script>
-    </div>
 
+		<div class="usi-container"> 
+			<div class="usi-side">
+				<div class="usi-header">
+					<div class="usi-side-avatar">
+						<%= image_tag current_user.profile_picture %>
+					</div>
+					<div class="usi-title">
+						<%= current_user.name %>
+					</div>				
+				</div>
+				<div class="usi-menu">
+					<ul>
+						<li>Matches</li>
+						<li class="usi-active">Chats</li>
+					</ul>
+				</div>
 
+                <div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('gabi.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Gabi</div>
+						<div class="usi-text">Seu frango</div>
+					</div>
+				</div>
 
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('luan.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Luan</div>
+						<div class="usi-text">To fumando um nargas</div>
+					</div>
+				</div>
 
-   <h5 class="usuarioemail"> <%= current_user.email %> </h5>
-   <%= current_user.name %>
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('leticia.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Leticia</div>
+						<div class="usi-text">To fumando um chá, com a seda preta</div>
+					</div>
+				</div>
 
-  
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('murilo.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Murilo</div>
+						<div class="usi-text">sou bonito sou gostoso jogo bola e danço</div>
+					</div>
+				</div>
 
+				<div class="usi-messages">
+					<div class="usi-avatar">
+						<%= image_tag asset_path('laura.jpg')%>
+					</div>
+					<div class="usi-friend">
+						<div class="usi-user">Laura</div>
+						<div class="usi-text">Vamo vavas</div>
+					</div>
+				</div>
+			</div>
+			<div class="usi-content">
+				<div class="usi-card">
+					<div class="usi-user-recomendado">
+						<%= image_tag asset_path('carol.jpg'), class:'usi-user-recomendado'%>
+						<div class="usi-user-recomendado-profile">
+							<div class="usi-user-recomendado-name">Carol <span>18</span> </div>
+							<div class="usi-user-recomendado-local">
+								<i class="fas fa-map-marker alt"></i>
+								<span>A 160 quilômetros daqui</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="usi-buttons">
+					<div class="no">
+						<i class="fas fa-times"></i>
+					</div>
+					<div class="star">
+						<i class="fas fa-star fa"></i>
+					</div>
+					<div class="heart">
+						<i class="fas fa-heart"></i>
+					</div>
+				</div>
+            </div>
+		</div>
 <% else %>
 
 <div class="home">
