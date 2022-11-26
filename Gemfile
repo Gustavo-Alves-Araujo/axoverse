@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -75,3 +75,5 @@ end
 gem "devise", "~> 4.8"
 gem 'rails-i18n'
 gem 'devise-i18n'
+
+gem "hotwire-rails", "~> 0.1.3"

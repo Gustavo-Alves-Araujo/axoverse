@@ -1,7 +1,0 @@
-<% if user %>
-  <%= form_with( model: @room, remote: true, class: 'd-flex') do |f|%>
-    <p>Create a chat with: <%= user.email %></p>
-    <%= hidden_field_tag 'user', user.email  %>
-    <%= f.submit data: {disable_with: false } %>
-  <% end %>
-<% end %>

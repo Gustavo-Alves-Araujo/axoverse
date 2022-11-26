@@ -1,0 +1,108 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.chat-area {
+  height: 95vh;
+  overflow-y: auto;
+}
+
+.messages-container {
+  position: relative;
+}
+
+.messages-container .top {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  position: absolute;
+  position: sticky;
+  top: 0;
+}
+
+.messages-container .bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  position: sticky;
+  bottom: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(237, 237, 237);
+  padding: 10px;
+
+}
+
+.bottom .form-group {
+  margin: 0;
+  bottom: 0;
+}
+
+.messages-container {
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#messages {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.msg {
+  color: white;
+  width: 50vw;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: #fdf0fd;
+  align-self: flex-start;
+  color: black !important;
+
+}
+
+.msg-form {
+  margin-top: 40px;
+  width: 90%;
+}
+
+
+.chatOpened {
+  font-size: 20px;
+  font-family: 'Righteous' cursive;
+
+}
+
+.chatOpened a {
+  text-decoration: none;
+  outline: none;
+  color: black;
+
+  transition: all .3s ease;
+}
+
+.chatOpened :hover {
+  color: gray;
+}
+
+#messages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

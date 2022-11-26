@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   resources :rooms do
+    get 'list', on: :collection
     resources :messages
   end
 end
