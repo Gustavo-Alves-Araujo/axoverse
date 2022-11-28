@@ -6,20 +6,18 @@
       <%= image_tag asset_path('axoregistro.png'), class:'devise-conteudo-imagem'%>
     </div>
 
-    <div class="devise-conteudo-login">
-      <div class="devise-conteudo-login-view">
-
-        <h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
+    <div class="devise-conteudo-registration-view">
+      <h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
 
         <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: registration_path(resource_name) ) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-        <%= f.label :"Foto de perfil" %><br />
-        <div class="login-view-input">
+          <div class="field">
+          <%= f.label :"Foto de perfil" %><br />
+          <div class="registration-view-input">
             <%= f.file_field :profile_picture %>
-        </div>
-      </div>
+          </div>
+          </div>
 
           <div class="field">
             <%= f.label :email %> <br />
@@ -29,11 +27,11 @@
             </div>
           </div>
 
-           <div class="field">
+          <div class="field">
             <%= f.label :"Insira seu nome" %> <br />
-            <div class="registration-view-input-name">
-            <i class="fa-solid fa-user-pen"></i>
-            <%= f.text_field :name, autofocus: true, placeholder:"Ex: Gabriella Romano" %></p>
+            <div class="registration-view-input">
+              <i class="fa-solid fa-user-pen"></i>
+              <%= f.text_field :name, autofocus: true, placeholder:"Ex: Gabriella Romano" %></p>
             </div>
           </div>
 
@@ -42,10 +40,11 @@
             <% if @minimum_password_length %>
             <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
             <% end %><br />
-              <div class="registration-view-input">
-                <i class="fa-solid fa-lock"></i>
-                <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
-              </div>
+            
+            <div class="registration-view-input">
+              <i class="fa-solid fa-lock"></i>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
+            </div>
           </div>
 
           <div class="field">
@@ -56,10 +55,12 @@
             </div>
           </div>
 
-          <div class="login-view-botao">
+          <div class="registration-view-botao">
             <%= f.submit t('.sign_up') %>
           </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
-        </div>
+         <%= render "devise/shared/links" %>
+    </div>
+ 
+  </div>
+</div>
