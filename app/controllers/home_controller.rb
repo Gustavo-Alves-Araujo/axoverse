@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   before_action :set_view_variables, only: %i[index]
 
+  
+
   def index; end
 
   def profile; end
@@ -12,4 +14,6 @@ class HomeController < ApplicationController
     @contacts = current_user.contacts
     @rooms = current_user.rooms
   end
+
+  
 end

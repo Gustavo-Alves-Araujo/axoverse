@@ -5,7 +5,7 @@ module ApplicationHelper
     end
 
     # Imagem padrão caso o usuário não tenha uma foto
-    image_tag('logoaxo.png')
+    image_tag('default-user')
   end
 
   def contact_info(room)

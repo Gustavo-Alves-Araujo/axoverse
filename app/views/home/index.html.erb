@@ -38,6 +38,8 @@
 						<li>Matches</li>
 						<li class="usi-active">Chats</li>
 						<%= current_user.email %>
+						<%= current_user.biografia %>
+						<%= current_user.age %>
 					</ul>
 				</div>
 				<%= turbo_stream_from @room %>

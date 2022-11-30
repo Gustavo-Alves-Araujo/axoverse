@@ -1,27 +1,47 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <ul class="">
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="nu">
+  <div class="nu-conteudo">
+    <div class="nu-conteudo-view">
+      <h2 class="nu-titulo">Crie seu perfil</h2>
 
+      <%= form_with model: @user do |f| %>
 
-<%= form_with model: @user do |f| %>
-    <div class="field">
-      <%= f.label :"Foto de perfil" %><br />
-      <div class="vadias">
-        <%= f.file_field :profile_picture %>
+      <div class="field">
+        <%= f.label :"Digite o seu nome"%> 
+        <div class="nu-input">
+          <i class="fa-solid fa-envelope"></i>
+          <%= f.text_field :name, required:'true'%>
+        </div>
       </div>
+
+      <div class="field">
+        <%= f.label :"Biografia"%>
+        <div class="nu-input">
+          <i class="fa-solid fa-envelope"></i>
+          <%= f.text_field :biografia, required:'true'%>
+        </div>
+      </div>
+     
+      <div class="field">
+        <%= f.label :"Idade"%>
+        <div class="nu-input">
+          <i class="fa-solid fa-envelope"></i>
+          <%= f.number_field :age, id:'nu-age', required:'true'%>
+        </div>
+      </div>
+      
+
+      <div class="nu-botao">
+            <%= f.submit %>
+      </div>
+ 
+      <%end%>
     </div>
 
-  <%= f.label :name, class:"form__label" %>
-  <%= f.text_field :name, class: "form__input"%>
-
-  <div class="flex--between">
-    <%= f.submit class:"btn btn--primary"%>
-    <%= link_to 'Voltar', root_path, class:"btn --primary" %>
+    <div class="nu-imagem">
+      <%= form_with model: @user do |f| %>
+      <%= f.label :"Fotoooo"%>
+      <%= f.file_field :profile_picture, required:'true'%>
+      <%end%>
+    </div>
   </div>
-<% end %>
+</div>

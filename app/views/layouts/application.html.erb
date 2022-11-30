@@ -14,9 +14,25 @@
     <script src="https://kit.fontawesome.com/c343559c13.js" crossorigin="anonymous"></script>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag asset_path('axolotl.png') %>
   </head>
 
   <body>
+  <!--<div id ="timer">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+<script>
+  $(document).ready(function(){
+    $("#timer").delay(5000).slideUp(300);
+});
+</script>
+
+!-->
 
     <%= yield %>
 
