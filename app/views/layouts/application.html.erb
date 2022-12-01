@@ -14,11 +14,10 @@
     <script src="https://kit.fontawesome.com/c343559c13.js" crossorigin="anonymous"></script>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag asset_path('axolotl.png') %>
   </head>
 
   <body>
-
     <%= yield %>
-
   </body>
 </html>

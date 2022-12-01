@@ -8,9 +8,9 @@ class User < ApplicationRecord
 
   has_one_attached :profile_picture
 
-  has_many :room_users
-  has_many :rooms, through: :room_users
-  has_many :messages
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   def contacts
     rooms.flat_map(&:users).reject(&current_user)

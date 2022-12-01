@@ -1,1 +1,25 @@
-<h1>seu perfil s2</h1>
+<h1>My Webite</h1>
+<h2>Wow isn't my website great</h2>
+<p><strong>It just makes you want to close the lightbox so I can get it!</strong>
+</p>
+<p><a href="http://www.google.com/">A Link to google</a>
+</p>
+<p><a href="#">A Link to no where</a>, but all the cool kids have multiple links</p>
+
+
+<!-- the actual interesting bit -->
+<div class="lightbox">
+  <div class="iframeContainer">
+    <div class="toolbarLB">
+      <span class="closeLB" onclick="lightBoxClose()">x</span>
+    </div>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1346255332069110%26id%3D1345708592123784&width=500" width="500" height="287" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+    allowTransparency="true"></iframe>
+  </div>
+</div>
+
+<script>
+lightBoxClose = function() {
+  document.querySelector(".lightbox").classList.add("closed");
+}
+</script>
