@@ -878,48 +878,125 @@ body {
 -
 */
 
+.popup{
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: rgba(0, 0, 0, .5);
+ }
+
+ .popup-titulo {
+   color: #fff;
+   text-align: center;
+   padding-top: 40px;
+   font-size: 40px;
+   padding-bottom: 40px;
+ }
+
+ .popup-container {
+   border: solid 3px #6c6391;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 20px;
+   vertical-align: middle;
+   background: #383438;
+   padding: 2px;
+   width: 450px;
+   height: 500px;
+ }
+
+ .popup-container p {
+   color: #fff;
+   font-family: 'Sarala' sans-serif;
+   font-size: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+ }
+
+ .popup-obs {
+   color: #FFF2E7;
+   margin-top: 150px;
+ }
+
+ .close-popup {
+   margin-left: 27%;
+   border-radius: 30px;
+   border: #6c6391 solid 3px;
+   background-color: #FFF2E7;
+   color: black;
+   width: 200px;
+   font-size: 23px;
+ }
+
+ .popup.closed {
+   display: none;
+ }
+
+ .nu-cabecalho {
+   display: flex;
+   align-items: left;
+   justify-content: left;
+   border-bottom: 0.4px solid #FFF2E7;
+   margin-top: 0px;
+}
+
+
+.nu-cabecalho-logo {
+   height: 70px;
+   margin-left: 30px;
+}
 
 .nu {
-   border: red solid 3px;
    position: relative;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+   height: 90%;
    display: flex;
    justify-content: center;
+   margin-top: 10px;
 }
 
 .nu-conteudo {
+   border: solid 2px #6c6391;
+   border-radius: 40px;
+   width: 80%;
    background-color: white;
    display: flex;
-   align-items: center;
-   border: solid orange 3px;
+   align-items: top;
+   height: 95%;
 }
 
 .nu-conteudo-view {
-   background: white;
-   padding: 60px;
+   margin-top: 30px;
+   border-radius: 40px;
    width: min-content;
    align-items: center;
    color: #2b343b;
+   padding-left: 30px;
 }
 
 .nu-titulo {
    font-family:'sarala' sans-serif;
    font-size: 40px;
    color: black;
-   margin-bottom: 10%;
+   margin-bottom: 10px;
 }
 
-.nu-input {
-   min-width: 280px;
+.nu-conteudo-view label{
+ font-size: 20px;
+}
+
+.nu-input-name {
+   width: 260px;
    border-radius: 22px;
    border: 2px #6f7e8a solid;
    padding: 5px;
    margin: 0px 0px 12px -5px;
 }
 
-.nu-input i {
+.nu-input-name i {
    font-size: 1.2em;
    padding: 5px;
    background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
@@ -928,7 +1005,7 @@ body {
    -webkit-text-fill-color: transparent;
 }
 
-.nu-input input {
+.nu-input-name input {
    width: 80%;
    border: none;
    outline: none;
@@ -937,15 +1014,60 @@ body {
    color: #2b343b;
 }
 
+.nu-input-age {
+   width: 80px;
+   border-radius: 10px;
+   border: 2px #6f7e8a solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+}
+
+
+.nu-input-age input {
+   width: 80%;
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-10%);
+   color: #2b343b;
+}
+
+.nu-input-bio {
+   min-width: 270px;
+   width: 400px;
+   height: 140px;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+}
+
+.nu-input-bio i {
+   font-size: 1.2em;
+   padding: 5px;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.nu-input-bio textarea {
+   background-color: #11e29900;
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   color: #2b343b;
+}
+
 .nu-botao {
-   margin-top: 10%;
-   width: 100%;
-   text-align: center;
+   margin-top: 35px;
+   width: 20%;
+
 }
 
 .nu-botao input {
    font-family: 'Righteous', cursive;
-   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
    width: 100%;
    height: 40px;
    border: none;
@@ -957,11 +1079,9 @@ body {
    margin-bottom: 10px;
 }
 
-.nu-imagem{
-   height: 450px;
-   margin-right: 70px;
 
-}
+
+
 
 
 
@@ -1027,6 +1147,31 @@ font-size: 20px;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

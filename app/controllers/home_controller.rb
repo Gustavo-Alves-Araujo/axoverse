@@ -3,9 +3,12 @@ class HomeController < ApplicationController
 
   
 
-  def index; end
+  def index; 
+  end
 
-  def profile; end
+
+  def profile; 
+  end
 
   def set_view_variables
     return unless current_user
