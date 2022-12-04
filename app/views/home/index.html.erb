@@ -33,14 +33,14 @@
 					<%= current_user.name %>
 				</div>
 			</div>
-			
+
 			<div class="usi-menu">
-				<ul>				
+				<ul>
 					<li><%= link_to 'oii', root_path%></li>
 					<li class="usi-active">Chats</li>
 				</ul>
 			</div>
-			
+
 			<%= turbo_stream_from @room %>
 
 			<% @rooms.each do |room|%>
@@ -57,7 +57,7 @@
 				<% end %>
 			<% end %>
 		</div>
-	
+
 		<% if @messages%>
 
 		<%= stylesheet_link_tag "chat.css", :media => "all" %>
@@ -106,26 +106,15 @@
 					<div class="heart">
 						<%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
 							<%= hidden_field_tag :receiver_user_id, user.id  %>
-							<%= f.submit 'conversar'%>
+							<%= f.submit %>
 						<% end %>
-						<i class="fas fa-heart" id="chat-with"></i>
+						<i class="fas fa-heart" id="chat-with" data-controller="match" data-action="click->match#submitForm"></i>
 					</div>
 				</div>
 		<% end %>
 		</div>
 	</div>
 
-	
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			const buttons = Array.from(document.getElementsByClassName('fas fa-heart'))
-		buttons.forEach(button => {
-			button.addEventListener('click', () => {
-				button.parentElement.querySelector('form').submit()
-			})
-		})
-		})
-	</script>
 	<% end %>
 
 
