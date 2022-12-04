@@ -988,6 +988,15 @@ body {
  font-size: 20px;
 }
 
+.nu-name-age {
+   display: flex;
+   flex-direction: row;
+}
+
+.nu-nome {
+   padding-right: 20px;
+}
+
 .nu-input-name {
    width: 260px;
    border-radius: 22px;
@@ -1016,7 +1025,7 @@ body {
 
 .nu-input-age {
    width: 80px;
-   border-radius: 10px;
+   border-radius: 22px;
    border: 2px #6f7e8a solid;
    padding: 5px;
    margin: 0px 0px 12px -5px;
@@ -1024,6 +1033,7 @@ body {
 
 
 .nu-input-age input {
+   background: none;
    width: 80%;
    border: none;
    outline: none;
@@ -1059,28 +1069,81 @@ body {
    color: #2b343b;
 }
 
-.nu-botao {
+.nu-botoes {
    margin-top: 35px;
-   width: 20%;
-
 }
 
-.nu-botao input {
-   font-family: 'Righteous', cursive;
+.nu-botoes input {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
-   width: 100%;
    height: 40px;
+   width: 400px;
    border: none;
    font-size: 1.2em;
    color: white;
    border-radius: 20px;
    outline: none;
    cursor: pointer;
-   margin-bottom: 10px;
+   padding: 5px;
 }
 
 
+.nu-card {
+   position: relative;
+   height: 400px;
+   margin-left: 60px;
+   margin-top: 60px;
+}
 
+.nu-user-recomendado {
+   width: 350px;
+   height: 400px;
+   object-fit: cover;
+   border-radius: 10px;
+   box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.nu-user-recomendado img { 
+   width: 350px;
+   height: 400px;
+   object-fit: cover;
+   border-radius: 10px;
+   box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.nu-user-recomendado-profile {
+   position: absolute;
+   bottom: 0;
+   left: 20px;
+}
+
+.nu-user-recomendado-name {
+   color: #FFF2E7;
+   font-size: 32px;
+   font-weight: 700;
+   letter-spacing: 0.5px;
+   text-shadow: 1px 1px 3px #444;
+}
+
+.nu-user-recomendado-name span {
+   font-size: 26px;
+}
+
+.nu-user-recomendado-local {
+   display: flex;
+   align-items: center;
+   padding: 0 0 20px 0;
+}
+
+.nu-user-recomendado-local i {
+   margin: 5px 0;
+   color: #710e7a;
+}
+
+.nu-user-recomendado-local span {
+   color: #fff;
+   padding: 0 10px;
+   text-shadow: 1px 1px 3px #444;
+}
 
 
 

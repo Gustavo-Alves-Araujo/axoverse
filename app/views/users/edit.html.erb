@@ -11,57 +11,85 @@
 
       <%= form_with model: @user do |f| %>
 
-      <div class="field">
-        <%= f.label :"Digite o seu nome"%> 
-        <div class="nu-input-name">
-          <i class="fa-solid fa-pencil"></i>
-          <%= f.text_field :name, required:'true', maxLength:'30', placeholder:'Ex: Gabriella Romano'%>
+      <div class="nu-name-age">
+        <div class="nu-nome">
+          <%= f.label :"Digite o seu nome"%> 
+          <div class="nu-input-name">
+            <i class="fa-solid fa-pencil"></i>
+            <%= f.text_field :name, required:'true', maxLength:'30', placeholder:'Ex: Gabriella Romano'%>
+          </div>
+        </div>
+
+        <div class="nu-idade">
+          <%= f.label :"Idade"%>
+          <div class="nu-input-age">
+            <%= f.number_field :age, required:'true', placeholder:'Ex: 17', id:'rangenumber', min:'1', max:'40'%>
+          </div>
         </div>
       </div>
 
-      <div class="field">
-        <%= f.label :"Idade"%>
-        <div class="nu-input-age">
-          <%= f.number_field :age, required:'true', placeholder:'Ex: 17', id:'rangenumber', min:'1', max:'40'%>
-        </div>
-      </div>
-
-      <script>
-        document.querySelector("#rangenumber").addEventListener("input", el => {
-        if (el.target.value > parseInt(el.target.getAttribute("max"))) {
-        el.target.value = el.target.getAttribute("max");
-        }
-
-        if (el.target.value <= parseInt(el.target.getAttribute("min"))) {
-        el.target.value = 1;
-        }
-      })
-      </script>
-
-      <div class="field">
+      <div class="field-bio">
         <%= f.label :"Biografia (limite de 264 caracteres)"%>
         <div class="nu-input-bio">
          
-          <%= f.text_area :biografia, maxLength:'264', cols:'42', rows:'5' %>
+          <%= f.text_area :biografia, required:'true', maxLength:'264', cols:'42', rows:'5' %>
         </div>
       </div>
 
-      <div class="field">
+      <div class="field-picture">
         <%= f.label :"Foto de perfil" %><br />
         <div class="registration-view-input">
-         <%= f.file_field :profile_picture %>
+         <%= f.file_field :profile_picture, accept: 'image/png, image/gif, image/jpeg' %>
         </div>
+      </div>
+
+      <div class="nu-botoes">
+       <%= f.submit "Finalizar perfil" %>
       </div>
 
     </div> 
 
-    <div class="nu-botao">
-        <%= f.submit %>
-    </div>
-    
+		<div class="nu-card">
+			<div class="nu-user-recomendado">
+				<%= profile_picture_of(current_user) %>
+				<div class="nu-user-recomendado-profile">
+          <div class="js-name-preview"> </div>
+          <span class="js-age-preview"> </span>
+				</div>
+			</div>
+		</div>
+
     <% end %>
   </div>
 </div>
+
+<script>
+  const nameField = document.querySelector('#user_name')
+  const ageField = document.querySelector('#rangenumber')
+  const nameFieldPreview = document.querySelector('.js-name-preview')
+  const ageFieldPreview = document.querySelector('.js-age-preview')
+
+  const imageField = document.querySelector("#user_profile_picture")
+  const imagePreview = document.querySelector(".nu-user-recomendado").querySelector('img');
+
+  nameField.addEventListener('input', (event) => {
+    nameFieldPreview.innerText = event.target.value
+  })
+
+  ageField.addEventListener('input', (event) => {
+    ageFieldPreview.innerText = event.target.value
+  })
+
+  imageField.addEventListener('input', (event) => {
+    const uploadedFile = event.target.files[0];
+
+    const url = URL.createObjectURL(uploadedFile);
+
+    imagePreview.src = url
+  })
+
+</script>
+
 
 
 <div class="popup">

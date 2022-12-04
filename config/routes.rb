@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/edit', to: 'users#edit'
   get '/profile', to: 'home#profile'
+  get '/previa', to: 'users#previa'
 
   resources :users, only: [:show, :edit, :update]
 
