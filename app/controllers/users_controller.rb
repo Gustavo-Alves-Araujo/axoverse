@@ -16,9 +16,12 @@ class UsersController < ApplicationController
     def edit
     end
 
+    def previa
+    end
+
     def update
         if @user.update(user_params)
-          redirect_to root_path, notice: 'Usuario editado'
+          redirect_to root_path, notice:"Usuário editado"
         else
           flash[:error] = 'Algo deu muito errado, por favor digite novamente'
           render :edit

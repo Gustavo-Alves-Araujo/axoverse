@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   def list
     @room = Room.new
 
-    @users_to_chat_with = User.all_except_contacts_of(current_user)
+    @users_to_chat_with = User.all_except_contacts_of(current_user).first(1)
   end
 
   def show
@@ -42,9 +42,9 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to room_path(@room)
     else
-      flash.now[:error] = 'Algo deu errado!'
+      flash[:alert] = @room.errors.full_messages
 
-      redirect_to list_rooms_path
+      redirect_to root_path
     end
   end
 
