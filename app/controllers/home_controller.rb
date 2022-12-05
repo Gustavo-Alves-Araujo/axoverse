@@ -1,17 +1,17 @@
-class HomeController < ApplicationController
-  before_action :set_view_variables, only: %i[index]
-
-  
-
-          def index; 
-          end
+    class HomeController < ApplicationController
+      before_action :set_view_variables, only: %i[index]
 
 
-          def profile; 
-            end
 
-                      def teste
-                          @oi = 'teste'
+              def index; 
+              end
+
+
+              def profile; 
+                end
+
+                          def teste
+                              @oi = 'teste'
                   end
 
                       def set_view_variables
