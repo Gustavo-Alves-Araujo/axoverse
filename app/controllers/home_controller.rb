@@ -7,8 +7,8 @@ class HomeController < ApplicationController
   end
 
 
-  def profile; 
-  end
+    def profile; 
+    end
   
         def teste
             @oi = 'teste'
