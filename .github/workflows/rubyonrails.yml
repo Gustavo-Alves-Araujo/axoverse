@@ -17,6 +17,7 @@ jobs:
         run: |
           bundle lock --add-platform ruby
           bundle lock --add-platform x86_64-linux
+          bundle install
       - name: Run script file
         run: |
           chmod +x "${GITHUB_WORKSPACE}/.github/htmlbeautifier.sh"
