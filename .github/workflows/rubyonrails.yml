@@ -34,6 +34,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git restore .github
+          git checkout origin/main Gemfile.lock
           git add -u
 
           if ! git diff-index --quiet HEAD; then
