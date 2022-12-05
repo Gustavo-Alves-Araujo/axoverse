@@ -2,9 +2,6 @@
 
   <div class="devise-conteudo">
 
-    <div class="devise-conteudo-imagem">
-      <%= image_tag asset_path('axologin.png'), class:'devise-conteudo-imagem'%>
-    </div>
 
     <div class="devise-conteudo-login-view">
       <h2 class="login-view-titulo"><%= t('.sign_in')%></h2>
@@ -39,9 +36,15 @@
             <%= f.submit t('.sign_in') %>
           </div>
 
+          <%= render "devise/shared/links" %>
+          
+          <div class="devise-conteudo-imagem">
+           <%= image_tag asset_path('axologin.png'), class:'devise-conteudo-imagem'%>
+          </div>  
+
         <% end %>
 
-        <%= render "devise/shared/links" %>
+
 
     </div>
   </div>
