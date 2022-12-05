@@ -1,23 +1,23 @@
-<div class="murilo">
+                                                                        <div class="murilo">
 
-<header class="cabecalho">
-        <%= link_to root_path do %>
-            <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
-        <% end %>
-        <h5> <%= current_user.email %></h5>
-        <nav class="cabecalho-menu">
-          <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
-        </nav>
-</header>
+                                                                        <header class="cabecalho">
+                                                                                <%= link_to root_path do %>
+                                                                                    <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
+                                                                                <% end %>
+                                                                                <h5> <%= current_user.email %></h5>
+                                                                                <nav class="cabecalho-menu">
+                                                                                  <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+                                                                                </nav>
+                                                                        </header>
 
 
-<div>
-  <div>
-    <h1> Lista de usuários para conversar </h1>
-      <% @users_to_chat_with.each do |user| %>
-      <%= render 'user_to_chat_with', user: user %>
-  </div>
-</div>
+                                                                        <div>
+                                                                          <div>
+                                                                            <h1> Lista de usuários para conversar </h1>
+                                                                              <% @users_to_chat_with.each do |user| %>
+                                                                              <%= render 'user_to_chat_with', user: user %>
+                                                                          </div>
+                                                                        </div>
 
-<% end %>
-</div>
+                                                                        <% end %>
+                                                                        </div>
