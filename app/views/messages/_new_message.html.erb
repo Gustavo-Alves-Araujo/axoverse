@@ -4,8 +4,7 @@
     <%= f.submit 'Enviar', data: { disable_with: false }, class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<script> 
+<script>
   const form = document.querySelector('.input-message');
   const chatText = document.querySelector('#chat-text')
   form.addEventListener('submit', (event) => {

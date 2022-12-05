@@ -16,9 +16,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= favicon_link_tag asset_path('axolotl.png') %>
   </head>
-
   <body>
-
     <% if flash[:notice] %>
       <div class="alert alert-info mb-2">
         <%= flash[:notice] %>
@@ -34,7 +32,6 @@
         <%= flash[:success] %>
       </div>
     <% end %>
-
     <%= yield %>
   </body>
 </html>
