@@ -6,15 +6,15 @@
     color: white !important;
   }
 </style>
-
-</div><div class="chats-container d-flex p-3">
+</div>
+<div class="chats-container d-flex p-3">
   <div class="users-list me-4">
     <% @rooms.each do |room| %>
       <%= button_to room_path(room), method: :get, class: "btn btn-danger" do %>
         <h3>
           <%= contact_info(room).name %>
         </h3>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
   <div class="chat-area bg-white">

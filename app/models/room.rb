@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Room < ApplicationRecord
   has_many :room_users, dependent: :destroy
   has_many :users, through: :room_users
@@ -25,6 +27,6 @@ class Room < ApplicationRecord
   def unique_users_validation
     return unless users.count < REQUIRED_USERS
 
-    errors.add(:users, "já possuem uma sala aberta") if users.first.contacts.include?(users.second)
+    errors.add(:users, 'já possuem uma sala aberta') if users.first.contacts.include?(users.second)
   end
 end
