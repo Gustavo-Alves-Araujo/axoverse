@@ -78,3 +78,6 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 
 gem "hotwire-rails", "~> 0.1.3"
+gem 'htmlbeautifier'
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
