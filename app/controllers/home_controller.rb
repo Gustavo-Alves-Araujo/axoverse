@@ -8,14 +8,14 @@ class HomeController < ApplicationController
 
 
     def profile; 
-    end
-  
-        def teste
-            @oi = 'teste'
-    end
+      end
 
-        def set_view_variables
-          return unless current_user
+          def teste
+              @oi = 'teste'
+      end
+
+          def set_view_variables
+            return unless current_user
 
           @users_to_chat_with = User.all_except_contacts_of(current_user)
           @contacts = current_user.contacts
