@@ -1252,6 +1252,21 @@ font-size: 20px;
    }
 }
 
+
+/*
+- 
+- 
+- 
+- 
+- 
+Responsividade mobile
+-
+-
+-
+-
+*/
+
+
    @media screen  and (max-width: 600px){
 
       
@@ -1270,15 +1285,16 @@ font-size: 20px;
          height:269px;
          margin-right: 0px;
          animation-delay: 0s;
-         margin-top: -2px;
-         margin-left: -5px; }
+         margin-top: 2px;
+         margin-left: 25px; }
    
    .devise-conteudo-login-view {
    
       
-         width: 400px;
+         width: 530px;
+         margin-top: 120px;
          margin-left: 75px;
-         height: 800px;
+         height: 1000px;
          align-items: center;
       
    }
@@ -1289,15 +1305,15 @@ font-size: 20px;
       font-size: 70px;
       color: white; 
       margin-top: 50px;
-      margin-bottom: 5%;
-      margin-left: 20%;
+      margin-bottom: 6%;
+      margin-left: 28%;
    } 
    
    .login-view-input input {
       width: 80%;
       border: none;
       outline: none;
-      right:  25px;
+      right:  27px;
       transform: translateY(-10%);
       color: white;
       background: none;
@@ -1305,25 +1321,132 @@ font-size: 20px;
    }
    
    .login-view-input {
-      min-width: 120px;
+      min-width: 200px;
       width: 300px;
       border-radius: 22px;
       border: 2px #59547c solid;
-      padding: 5px;
-      margin-left: 5px;
+      padding: 8px;
       margin: 0px 0px 12px -5px;
    }
    
    .devise {
       position: relative;
       top: 50%;
-      left: 40%;
+      left: 39%;
       transform: translate(-50%, -50%);
       display: flex;
       justify-content: center;
    }
+
+   .cabecalho-menu-botao-login {
+      right: 200px;
+      width: 100px;
+      height: 50px;
+      margin-bottom: 3px;
+      border: solid lightgray;
+      border-radius:20px ;
+      box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+      font-weight: 400;
+      font-size: 20px;
+
+    }
+   
+    .cabecalho-menu-botao-criar {
+      left: 20px;
+      width: 110px;
+      height: 50px;
+      margin-bottom: -5px;
+      border: solid lightgray;
+      border-radius:20px ;
+      box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+      font-family: 'Sarala', sans-serif;
+      font-weight: 400;
+      font-size: 20px;}
+
+
+      .cabecalho {
+
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-around;
+         padding-left: -200px;
+         border-bottom: 0.4px solid #FFF2E7;
+      }
+     
+     
+      .cabecalho-logo {
+         height: 150px;
+         padding-right: 20px;
+     
+     }
+     
+      .cabecalho-menu {
+         display: flex;
+         gap: 38px;
+      }
+    
+      .conteudo-principal-imagem {
+         animation-name: floating;
+         animation-duration: 8s;
+         animation-iteration-count: infinite;
+         animation-timing-function: ease-in-out;
+         height: 350px;
+         display: none;
+     }
+   
+     .conteudo-secundario {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+   }
+   
+   .conteudo-secundario-titulo {
+      border-top: 0.4px solid #FFF2E7;
+      padding-top: 48px;
+      font-family: 'Righteous' cursive;
+      font-weight: 400;
+      margin-left: -4%;
+      font-size: 30px;
+      color: #FFF2EF;
+      margin-bottom: 16px;
+   }
+   
+   .conteudo-secundario-paragrafo {
+      font-family: 'Sarala' sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      margin-left: -4%;
+      color: #FFF2E7;
+   
+   }
+   
+   .rodape {
+   
+      border-top: 0.4px solid #FFF2E7;
+      padding: 32px;
+      
+   
+   }
+   
+   .rodape-titulo {
+      background-image: radial-gradient(circle at 50% -20.71%, #badbff 0, #c2daff 6.25%, #c9d8ff 12.5%, #d0d6ff 18.75%, #d8d4ff 25%, #dfd2fe 31.25%, #e6d0fa 37.5%, #eccff6 43.75%, #f2cdf2 50%, #f7cced 56.25%, #fccbe8 62.5%, #ffcae2 68.75%, #ffc9dd 75%, #ffc9d7 81.25%, #ffc9d1 87.5%, #ffc9cc 93.75%, #ffcac6 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: black;
+      font-size: 80px;
+      font-weight: 25px;
+      line-height: 1.1;
+      margin-left: 12%;
+      padding: 0px;
+    }
    
    
+
+
 
 
 
