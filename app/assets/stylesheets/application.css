@@ -591,8 +591,7 @@ body {
 }
 
 .devise a {
-   color: rgb(152, 26, 163);
-   text-decoration: none;
+   color: white;
 }
 
 .devise-conteudo {
@@ -628,24 +627,23 @@ body {
 
 
 .devise-conteudo-login-view {
-   background: white;
    border-radius: 40px;
    box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
    padding: 60px;
    width: min-content;
    align-items: center;
-   color: #2b343b;
+   color: white;
+   border: solid 3px #6c6391;
+   background: #383438;
 }
 
-.login-view a {
-   color:#382D42;
-}
+
 
 .login-view-titulo {
    font-family: 'Righteous', cursive;
    font-weight: 400;
    font-size: 64px;
-   color: black;
+   color: white;
    margin-bottom: 10%;
    margin-left: 20%;
 }
@@ -655,10 +653,10 @@ body {
 .login-view-input {
    min-width: 280px;
    border-radius: 22px;
-   border: 2px #6f7e8a solid;
+   border: 2px #59547c solid;
    padding: 5px;
    margin: 0px 0px 12px -5px;
-
+   color: white;
 }
 
 .login-view-input i {
@@ -676,7 +674,12 @@ body {
    outline: none;
    font-family: 'Sarala', sans-serif;
    transform: translateY(-10%);
-   color: #2b343b;
+   color: white;
+   background: none;
+}
+
+.login-view-input input::placeholder{
+   color: rgb(205, 203, 203);
 }
 
 .login-view-botao {
@@ -712,26 +715,25 @@ body {
 
 
 .devise-conteudo-registration-view {
-   background: white;
    border-radius: 40px;
    box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
    padding: 60px;
    width: min-content;
    align-items: center;
-   color: #2b343b;
-   border: black solid 1px;
-   max-height: 100vh;
+   border: solid 3px #6c6391;
+   background: #383438;
+   color: white;
 }
 
 .registration-view a {
-   color:#382D42;
+   color:white;
 }
 
 .registration-view-titulo {
    font-family: 'Righteous', cursive;
    font-weight: 400;
    font-size: 45px;
-   color: black;
+   color: white;
    margin-bottom: 10%;
    margin-left: 3%;
 }
@@ -740,7 +742,7 @@ body {
 .registration-view-input {
    min-width: 280px;
    border-radius: 22px;
-   border: 2px #6f7e8a solid;
+   border: 2px white solid;
    padding: 5px;
    margin: 0px 0px 12px -5px;
 
@@ -756,12 +758,17 @@ body {
 }
 
 .registration-view-input input {
+   background: none;
    width: 80%;
    border: none;
    outline: none;
    font-family: 'Sarala', sans-serif;
    transform: translateY(-10%);
-   color: #2b343b;
+   color: white;
+}
+
+.registration-view-input input::placeholder {
+   color: rgb(205, 203, 203);
 }
 
 .registration-view-botao {
@@ -925,11 +932,13 @@ body {
  .close-popup {
    margin-left: 27%;
    border-radius: 30px;
-   border: #6c6391 solid 3px;
-   background-color: #FFF2E7;
    color: black;
    width: 200px;
    font-size: 23px;
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   border: none;
+   color: white;
+   cursor: pointer;
  }
 
  .popup.closed {
@@ -962,7 +971,7 @@ body {
    border: solid 2px #6c6391;
    border-radius: 40px;
    width: 80%;
-   background-color: white;
+   background-color: oldlace;
    display: flex;
    align-items: top;
    height: 95%;
@@ -986,6 +995,10 @@ body {
 
 .nu-conteudo-view label{
  font-size: 20px;
+}
+
+.nu-conteudo-view input {
+   background: none;
 }
 
 .nu-name-age {
@@ -1069,6 +1082,33 @@ body {
    color: #2b343b;
 }
 
+.nu-file-title {
+   font-size: 20px;
+}
+
+.nu-file-title i {
+   font-size: 1.2em;
+   padding: 5px;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+input[type='file'] {
+   display: none
+ }
+ 
+ .field-picture label {
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
+   border-radius: 5px;
+   color: #fff;
+   cursor: pointer;
+   padding: 6px 20px
+ }
+
+
+
 .nu-botoes {
    margin-top: 35px;
 }
@@ -1090,7 +1130,7 @@ body {
 .nu-card {
    position: relative;
    height: 400px;
-   margin-left: 60px;
+   margin-left: 140px;
    margin-top: 60px;
 }
 
@@ -1118,35 +1158,30 @@ body {
 
 .nu-user-recomendado-name {
    color: #FFF2E7;
-   font-size: 32px;
+   font-size: 28px;
    font-weight: 700;
    letter-spacing: 0.5px;
    text-shadow: 1px 1px 3px #444;
 }
 
-.nu-user-recomendado-name span {
-   font-size: 26px;
-}
-
-.nu-user-recomendado-local {
-   display: flex;
-   align-items: center;
-   padding: 0 0 20px 0;
-}
-
-.nu-user-recomendado-local i {
-   margin: 5px 0;
-   color: #710e7a;
-}
-
-.nu-user-recomendado-local span {
-   color: #fff;
-   padding: 0 10px;
+.nu-user-recomendado-age {
+   color: #FFF2E7;
+   font-size: 28px;
+   font-weight: 700;
+   letter-spacing: 0.5px;
    text-shadow: 1px 1px 3px #444;
 }
 
+.js-name-preview {
+   max-width: 300px;
+   word-wrap: break-word;
+}
 
-
+.nu-card span {
+   color: #FFF2E7;
+   font-size: 24px;
+   font-weight: 700;
+}
 
 /*
 -

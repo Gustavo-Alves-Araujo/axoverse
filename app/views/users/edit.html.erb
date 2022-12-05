@@ -16,7 +16,7 @@
           <%= f.label :"Digite o seu nome"%> 
           <div class="nu-input-name">
             <i class="fa-solid fa-pencil"></i>
-            <%= f.text_field :name, required:'true', maxLength:'30', placeholder:'Ex: Gabriella Romano'%>
+            <%= f.text_field :name, required:'true', maxLength:'20', placeholder:'Ex: Gabriella Romano'%>
           </div>
         </div>
 
@@ -35,26 +35,36 @@
           <%= f.text_area :biografia, required:'true', maxLength:'264', cols:'42', rows:'5' %>
         </div>
       </div>
-
+      
+      <div class="nu-file-title"> Selecione sua foto de perfil <i class="fa-solid fa-file-arrow-up"></i></div>
       <div class="field-picture">
-        <%= f.label :"Foto de perfil" %><br />
-        <div class="registration-view-input">
-         <%= f.file_field :profile_picture, accept: 'image/png, image/gif, image/jpeg' %>
-        </div>
+        <%= f.label :"Enviar imagem", for:'user_profile_picture'%><br />
+        <%= f.file_field :profile_picture, accept: 'image/png, image/gif, image/jpeg' %>
       </div>
+      
+      
+
 
       <div class="nu-botoes">
-       <%= f.submit "Finalizar perfil" %>
+        <%= f.submit "Finalizar perfil" %>
       </div>
-
     </div> 
+
+    
 
 		<div class="nu-card">
 			<div class="nu-user-recomendado">
 				<%= profile_picture_of(current_user) %>
+
 				<div class="nu-user-recomendado-profile">
-          <div class="js-name-preview"> </div>
-          <span class="js-age-preview"> </span>
+
+          <div class ="nu-user-recomendado-name">
+           <div class="js-name-preview"></div>   
+          </div>
+
+          <div class ="nu-user-recomendado-age">
+            <span class="js-age-preview"></span> 
+          </div>   
 				</div>
 			</div>
 		</div>
@@ -89,8 +99,6 @@
   })
 
 </script>
-
-
 
 <div class="popup">
   <div class="popup-container">

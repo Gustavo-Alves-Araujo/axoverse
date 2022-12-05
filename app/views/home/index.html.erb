@@ -7,9 +7,8 @@
         <div class="menu-perfil">
            	<h3 class="menu-perfil-titulo"> <%= current_user.name %> </h3>
 			<ul>
-				<li><i class="fa-solid fa-user"></i> <a href="/profile"> Meu Perfil</a></li>
-				<li><i class="fa-solid fa-user-pen"></i> <%= link_to "Editar usuário", edit_user_registration_path %></li>
-				<li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <a href="#">Configurações</a></li>
+				<li><i class="fa-solid fa-user"></i> <a href="/previa"> Meu Perfil</a></li>
+				<li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <%= link_to "Configurações", edit_user_registration_path %></li>
 				<li><i class="fa-solid fa-circle-question"></i> <a href="#">Ajude-me</a></li>
 				<li><i class="fa-solid fa-right-from-bracket"></i> <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'botao-sair' %></li>
 			</ul>
