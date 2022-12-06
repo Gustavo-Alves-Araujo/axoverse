@@ -3,9 +3,7 @@
     <div class="eu-conteudo-view">
       <h2 class="eu-titulo">Edite seu perfil </h2>
       <%= form_with model: @user do |f| %>
-
         <div class="eu-name-age">
-
           <div class="eu-nome">
             <%= f.label :"Nome atual:"%>
             <div class="eu-input-name">
@@ -13,23 +11,19 @@
               <%= f.text_field :name, required:'true', maxLength:'20', placeholder:'Ex: Gabriella Romano'%>
             </div>
           </div>
-
           <div class="eu-idade">
             <%= f.label :"Idade"%>
             <div class="eu-input-age">
               <%= f.number_field :age, required:'true', placeholder:'Ex: 17', id:'rangenumber', min:'1', max:'40'%>
             </div>
           </div>
-
         </div>
-
         <div class="field-bio">
           <%= f.label :"Biografia (limite de 264 caracteres)"%>
           <div class="eu-input-bio">
             <%= f.text_area :biografia, required:'true', maxLength:'264', cols:'42', rows:'5' %>
           </div>
         </div>
-
         <div class="eu-file-title"> Selecione sua foto de perfil <i class="fa-solid fa-file-arrow-up"></i></div>
         <div class="field-picture">
           <%= f.label :"Enviar imagem", for:'user_profile_picture'%><br />
@@ -39,8 +33,7 @@
           <%= f.submit "Finalizar perfil" %>
         </div>
       </div>
-
-    <div class="eu-card">
+      <div class="eu-card">
         <div class="eu-user-recomendado">
           <%= profile_picture_of(current_user) %>
           <div class="eu-user-recomendado-profile">

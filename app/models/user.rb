@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
 
   enum status: { not_completed: 0, completed: 1 }
-  
+
   has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users, dependent: :destroy
   has_many :messages, dependent: :destroy

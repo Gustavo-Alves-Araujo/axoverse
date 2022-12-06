@@ -1,13 +1,10 @@
 class HomeController < ApplicationController
   before_action :check_user_completed
   before_action :set_view_variables, only: %i[index]
-  
-  def index; 
-  end
 
+  def index; end
 
-  def profile; 
-  end
+  def profile; end
 
   def set_view_variables
     return unless current_user
