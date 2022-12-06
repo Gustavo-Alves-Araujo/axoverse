@@ -1,51 +1,53 @@
-<header class="nu-cabecalho">
-  <%= link_to root_path do %>
-    <%= image_tag asset_path('logoaxo.png'), class:'nu-cabecalho-logo'%>
-  <% end %>
-</header>
-<div class="nu">
-  <div class="nu-conteudo">
-    <div class="nu-conteudo-view">
-      <h2 class="nu-titulo">Crie seu perfil</h2>
+<div class="eu">
+  <div class="eu-conteudo">
+    <div class="eu-conteudo-view">
+      <h2 class="eu-titulo">Edite seu perfil </h2>
       <%= form_with model: @user do |f| %>
-        <div class="nu-name-age">
-          <div class="nu-nome">
-            <%= f.label :"Digite o seu nome"%>
-            <div class="nu-input-name">
+
+        <div class="eu-name-age">
+
+          <div class="eu-nome">
+            <%= f.label :"Nome atual:"%>
+            <div class="eu-input-name">
               <i class="fa-solid fa-pencil"></i>
               <%= f.text_field :name, required:'true', maxLength:'20', placeholder:'Ex: Gabriella Romano'%>
             </div>
           </div>
-          <div class="nu-idade">
+
+          <div class="eu-idade">
             <%= f.label :"Idade"%>
-            <div class="nu-input-age">
+            <div class="eu-input-age">
               <%= f.number_field :age, required:'true', placeholder:'Ex: 17', id:'rangenumber', min:'1', max:'40'%>
             </div>
           </div>
+
         </div>
+
         <div class="field-bio">
           <%= f.label :"Biografia (limite de 264 caracteres)"%>
-          <div class="nu-input-bio">
+          <div class="eu-input-bio">
             <%= f.text_area :biografia, required:'true', maxLength:'264', cols:'42', rows:'5' %>
           </div>
         </div>
-        <div class="nu-file-title"> Selecione sua foto de perfil <i class="fa-solid fa-file-arrow-up"></i></div>
+
+        <div class="eu-file-title"> Selecione sua foto de perfil <i class="fa-solid fa-file-arrow-up"></i></div>
         <div class="field-picture">
           <%= f.label :"Enviar imagem", for:'user_profile_picture'%><br />
           <%= f.file_field :profile_picture, accept: 'image/png, image/gif, image/jpeg' %>
         </div>
-        <div class="nu-botoes">
+        <div class="eu-botoes">
           <%= f.submit "Finalizar perfil" %>
         </div>
       </div>
-      <div class="nu-card">
-        <div class="nu-user-recomendado">
+
+    <div class="eu-card">
+        <div class="eu-user-recomendado">
           <%= profile_picture_of(current_user) %>
-          <div class="nu-user-recomendado-profile">
-            <div class ="nu-user-recomendado-name">
+          <div class="eu-user-recomendado-profile">
+            <div class ="eu-user-recomendado-name">
               <div class="js-name-preview"></div>
             </div>
-            <div class ="nu-user-recomendado-age">
+            <div class ="eu-user-recomendado-age">
               <span class="js-age-preview"></span>
             </div>
           </div>
@@ -61,7 +63,7 @@
   const ageFieldPreview = document.querySelector('.js-age-preview')
 
   const imageField = document.querySelector("#user_profile_picture")
-  const imagePreview = document.querySelector(".nu-user-recomendado").querySelector('img');
+  const imagePreview = document.querySelector(".eu-user-recomendado").querySelector('img');
 
   nameField.addEventListener('input', (event) => {
     nameFieldPreview.innerText = event.target.value

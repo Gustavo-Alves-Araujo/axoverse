@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/edit', to: 'users#edit'
   get '/profile', to: 'home#profile'
-  get '/previa', to: 'users#previa'
+
 
   resources :users, only: [:show, :edit, :update]
 
@@ -11,4 +11,11 @@ Rails.application.routes.draw do
     get 'list', on: :collection
     resources :messages
   end
+
+  resources :users do
+    member do
+      get :previa
+    end
+  end
+
 end
