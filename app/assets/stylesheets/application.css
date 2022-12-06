@@ -1473,13 +1473,10 @@ Responsividade
 
       .devise-conteudo-login-view {
          margin-right: 30%;
-         background: white;
-         border-radius: 40px;
-         box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
          padding: 130px;
          width: min-content;
          align-items: center;
-         color: #2b343b;
+
 
     }
     .devise-conteudo {
@@ -1494,6 +1491,82 @@ font-size: 20px;
    }
 
 
+}
+
+@media screen  and (max-width: 600px
+   
+){
+   
+.devise-conteudo-imagem{
+   animation-name: floating-devise;
+   animation-duration: 10s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-in-out;
+   animation: none;
+   height:269px;
+   margin-right: 0px;
+   animation-delay: 0s;
+   margin-top: -2px;
+   margin-left: -5px; 
+}
+
+
+
+
+
+
+
+
+
+
+.devise-conteudo-login-view {
+
+   
+      width: 400px;
+      margin-left: 75px;
+      height: 800px;
+      align-items: center;
+   
+}
+
+.login-view-titulo {
+   font-family: 'Righteous', cursive;
+   font-weight: 400;
+   font-size: 70px;
+   color: white; 
+   margin-top: 50px;
+   margin-bottom: 5%;
+   margin-left: 20%;
+} 
+
+.login-view-input input {
+   width: 80%;
+   border: none;
+   outline: none;
+   right:  25px;
+   transform: translateY(-10%);
+   color: white;
+   background: none;
+   
+}
+
+.login-view-input {
+   min-width: 120px;
+   width: 300px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin-left: 5px;
+   margin: 0px 0px 12px -5px;
+}
+
+.devise {
+   position: relative;
+   top: 50%;
+   left: 40%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   justify-content: center;
 }
 
 
@@ -1520,6 +1593,4 @@ font-size: 20px;
 
 
 
-
-
-
+}
