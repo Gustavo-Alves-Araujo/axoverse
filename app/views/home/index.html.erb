@@ -55,6 +55,7 @@
             <div class="usi-friend">
               <div class="usi-user"><%= contact_info(room).name%></div>
               <div class="usi-text"><%= room.messages.last&.body%></div>
+
             </div>
           </div>
         <% end %>
@@ -72,6 +73,9 @@
         	color: white !important;
         }
       </style>
+
+      <%= turbo_stream_from Room.find(url_for(only_path: true).split("/").last), "coringa" %>
+      <%= render 'messages/coringas', messages: @messages %>
 
       <div class="usi-content">
         <div class="chat-area bg-white" data-controller="scroll">

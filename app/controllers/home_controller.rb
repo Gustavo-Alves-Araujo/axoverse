@@ -18,6 +18,8 @@ class HomeController < ApplicationController
     @contacts = current_user.contacts
 
     @rooms = current_user.rooms.reverse
+
+    @coringas = ['joker', 'moacir', 'gabigordo']
   end
 
   private

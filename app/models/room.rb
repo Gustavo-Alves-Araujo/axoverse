@@ -7,6 +7,8 @@ class Room < ApplicationRecord
   validate :required_users_validation
   validate :unique_users_validation
 
+  # after_create_commit -> { broadcast_prepend_to "coringa", partial: "messages/novabola_message", locals: { quote: self }, target: "coringas" }
+
   broadcasts
 
   private

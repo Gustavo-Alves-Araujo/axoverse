@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem 'byebug'
 
+gem 'redis'
+
 # Use Redis adapter to run Action Cable in production
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

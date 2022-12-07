@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     def authenticate_user
         return if current_user == @user
-    
+
         redirect_to root_path
     end
 
@@ -21,16 +21,16 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(user_params)
-          redirect_to root_path, notice:"Usuário editado"
+          return redirect_to root_path, notice:"Usuário editado"
         else
           flash[:error] = 'Algo deu muito errado, por favor digite novamente'
           render :edit
         end
     end
 
-    def user_params 
+    def user_params
         params.require(:user).permit(:name, :profile_picture, :biografia, :age)
     end
 
-    
+
 end
