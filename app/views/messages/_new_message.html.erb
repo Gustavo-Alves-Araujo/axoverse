@@ -5,8 +5,8 @@
   <% end %>
 </div>
 <script>
-  const form = document.querySelector('.input-message');
-  const chatText = document.querySelector('#chat-text')
+  var form = document.querySelector('.input-message');
+  var chatText = document.querySelector('#chat-text')
   form.addEventListener('submit', (event) => {
     if(chatText.value === "") {
       event.preventDefault();

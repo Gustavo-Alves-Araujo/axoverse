@@ -11,12 +11,6 @@ class RoomsController < ApplicationController
     @contacts = current_user.contacts
   end
 
-  def list
-    @room = Room.new
-
-    @users_to_chat_with = User.all_except_contacts_of(current_user).first(1)
-  end
-
   def show
     @message = Message.new
 
@@ -24,9 +18,9 @@ class RoomsController < ApplicationController
 
     @new_room = Room.new
 
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.reverse
 
-    @contacts = current_user.contacts
+    @contacts = current_user.contacts.reverse
 
     render 'home/index'
   end

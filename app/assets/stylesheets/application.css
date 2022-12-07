@@ -178,12 +178,9 @@ body {
 
 .usi-side {
    min-width: 320px;
-   height: 200px;
    background-color: #fff;
-   height: 100%;
-   min-height: 100vh;
    border-right: 1px solid #e1e1e1 ;
-
+   overflow-y: auto;
 }
 
 .usi-side a {
@@ -235,7 +232,7 @@ body {
 }
 
 .usi-messages {
-   padding: 10px 20px;
+   padding: 10px 20px 15px;
    display: flex;
    align-items: center;
    transition: 0.2 box-shadow;
@@ -245,6 +242,10 @@ body {
  width: 70px;
  height: 70px;
  border-radius: 70px;
+}
+
+.contacts {
+   height: 1px;
 }
 
 .usi-user {
@@ -266,9 +267,14 @@ body {
 }
 
 .usi-messages:hover {
+   opacity: 0.9;
+   box-shadow: 0 0 15px 0 rgba(43,78,78,01);
+   cursor: pointer;
+}
+
+.selected-user {
    box-shadow: 0 0 15px 0 rgba(43,78,78,01);
    border-right: 5px solid #aa22cc;
-   cursor: pointer;
 }
 
 .usi-content {
@@ -520,7 +526,7 @@ body {
 @keyframes floating {
    0% { transform: translate(0,  0px); }
    50%  { transform: translate(0, 70px); }
-   100%   { transform: translate(0, -0px); }   
+   100%   { transform: translate(0, -0px); }
 }
 
 .conteudo-secundario {
@@ -615,7 +621,7 @@ body {
    0% { transform: translate(0,  0px); }
    25%  { transform: translate(0, 20px); }
    75%  { transform: translate(0, -20px); }
-   100%   { transform: translate(0, 0px); }   
+   100%   { transform: translate(0, 0px); }
 }
 
 /*
@@ -1098,7 +1104,7 @@ body {
 input[type='file'] {
    display: none
  }
- 
+
  .field-picture label {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
    border-radius: 5px;
@@ -1142,7 +1148,7 @@ input[type='file'] {
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 }
 
-.nu-user-recomendado img { 
+.nu-user-recomendado img {
    width: 350px;
    height: 400px;
    object-fit: cover;
@@ -1347,7 +1353,7 @@ TELA DE EDITAR PERFIL
 input[type='file'] {
    display: none
  }
- 
+
  .field-picture label {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
    border-radius: 5px;
@@ -1391,7 +1397,7 @@ input[type='file'] {
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 }
 
-.eu-user-recomendado img { 
+.eu-user-recomendado img {
    width: 350px;
    height: 400px;
    object-fit: cover;

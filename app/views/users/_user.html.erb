@@ -1,0 +1,27 @@
+<div class="usi-card">
+  <div class="usi-user-recomendado">
+    <%= profile_picture_of(user, 'usi-user-recomendado')%>
+    <div class="usi-user-recomendado-profile">
+      <div class="usi-user-recomendado-name"><%= user.name %> <span><%= user.age%></span> </div>
+      <div class="usi-user-recomendado-local">
+        <i class="fas fa-map-marker alt"></i>
+        <span>Itaquera, São Paulo</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="usi-buttons">
+  <div class="no">
+    <i class="fas fa-times"></i>
+  </div>
+  <div class="star">
+    <i class="fas fa-star fa"></i>
+  </div>
+  <div class="heart">
+    <%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
+      <%= hidden_field_tag :receiver_user_id, user.id  %>
+      <%= f.submit %>
+    <% end %>
+    <i class="fas fa-heart" id="chat-with" data-controller="match" data-action="click->match#submitForm"></i>
+  </div>
+</div>
