@@ -106,3 +106,94 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+@media screen  and (max-width: 600px){
+  
+  .chat-area {
+    height: 95vh;
+    overflow-y: auto;
+  }
+  
+  .messages-container {
+    position: relative;
+  }
+  
+  .messages-container .top {
+    width: 100%;
+    position: absolute;
+    position: sticky;
+    top: 0;
+  }
+  
+  .messages-container .bottom {
+    width: 100%;
+    position: absolute;
+    position: sticky;
+    bottom: 0;
+    padding: 10px;
+  }
+  
+  .bottom .form-group {
+    margin: 0;
+    bottom: 0;
+  }
+  
+  .messages-container {
+    width: 70vw;
+    margin: auto;
+  }
+  
+  #messages {
+    padding: 20px;
+    flex-grow: 1;
+  }
+  
+  .msg {
+    width: 50vw;
+    padding: 20px;
+    margin: 10px 0 10px 0;
+  }
+  
+  .msg-form {
+    margin-top: 40px;
+    width: 90%;
+  }
+  
+  
+  .chatOpened {
+    font-size: 20px;
+  }
+  
+  
+  #messages {
+    width: 100%;
+  }
+  
+  .messages-container {
+    min-height: 100%;
+    justify-content: space-between;
+  }
+  
+  .usi-side{
+    display: none;
+   }
+  
+   
+  .actiom {
+  display: none;
+  }
+  
+  .usi-content {
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  
+  .usi-container {
+  /*seguinte, nesse aq eu apaguei tudo pq n tiha nada q c ia usar, mas deixei a classe
+  vazia pq vai q vc precise p algo dps */
+  }
+  
+  
+  }

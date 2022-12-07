@@ -1713,7 +1713,7 @@ Responsividade mobile
 
 
 
-   .registration-view-titulo {
+.registration-view-titulo {
    font-size: 45px;
    margin-bottom: 20%;
    margin-left: 3%;
@@ -1727,7 +1727,6 @@ Responsividade mobile
    padding: 5px;
    margin-bottom: 2px;
    margin: 0px 0px 30px -5px;
-
 }
 
 .registration-view-input i {
