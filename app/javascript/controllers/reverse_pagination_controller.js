@@ -22,10 +22,13 @@ export default class extends Controller {
   }
 
   connect() {
-    document.addEventListener("scroll", this.scroll);
+    console.log(this.scroll)
+
+    this.element.addEventListener("scroll", this.scroll);
   }
 
   scroll() {
+    console.log(this.urlValue)
     if (this.#pageEnd && !this.fetching && !this.hasNoRecordsTarget) {
       // Add the spinner at the end of the page.
       this.postsTarget.insertAdjacentHTML("beforeend", spinner);
@@ -41,6 +44,8 @@ export default class extends Controller {
 
     this.fetching = true;
 
+    console.log(url)
+
     await get(url.toString(), {
       responseKind: "turbo-stream",
     });
@@ -51,8 +56,7 @@ export default class extends Controller {
 
   // Detect if we're at the bottom of the page.
   get #pageEnd() {
-    const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-
+    const { scrollHeight, scrollTop, clientHeight } = this.element;
     return scrollHeight - scrollTop - clientHeight < 40;
   }
 }

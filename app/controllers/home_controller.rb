@@ -17,9 +17,7 @@ class HomeController < ApplicationController
 
     @contacts = current_user.contacts
 
-    @rooms = current_user.rooms.reverse
-
-    @coringas = ['joker', 'moacir', 'gabigordo']
+    @rooms = current_user.rooms.includes(:messages).order("messages.created_at asc").reverse
   end
 
   private

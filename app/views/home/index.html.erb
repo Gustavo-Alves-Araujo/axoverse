@@ -54,7 +54,7 @@
 
             <div class="usi-friend">
               <div class="usi-user"><%= contact_info(room).name%></div>
-              <%= turbo_stream_from room, "coringa" %>
+              <%= turbo_stream_from room, "last_message" %>
               <%= render 'messages/coringas', message: room.messages.last, room: room %>
             </div>
           </div>
@@ -75,9 +75,27 @@
       </style>
 
       <div class="usi-content">
-        <div class="chat-area bg-white" data-controller="scroll">
+        <div class="chat-area bg-white" id="posts" data-controller="scroll reverse-pagination" data-reverse-pagination-target="posts"
+        data-reverse-pagination-url-value="<%= room_url(@room) %>"
+        data-reverse-pagination-page-value="<%= 2 %>"
+        >
+        <%= render @messages.reverse %>
           <%= turbo_stream_from "messages" %>
-          <%= render 'messages/messages', messages: @messages %>
+
+            <div class="messages-container">
+            <div class="top" style="display: flex; padding: 1.34rem; gap: 1.34rem">
+          <h3>
+          <%= contact_info(@room).name %>
+        </h3>
+      </div>
+      <div id="messages">
+      </div>
+
+      <div class="bottom">
+        <%= render 'messages/new_message', message: @message, room: @room%>
+      </div>
+      </div>
+
         </div>
       </div>
 

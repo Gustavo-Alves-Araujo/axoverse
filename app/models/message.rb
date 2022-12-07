@@ -2,15 +2,14 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  # broadcasts_to :room
+  broadcasts_to :room
 
   after_create_commit do
-    broadcast_update_to [room, "coringa"], target: "coringass-#{room.id}", partial: "messages/novabola_message",
-                                             locals: { message: self }
-    # broadcast_prepend_to [inbox, :messages], target: ActionView::RecordIdentifier.dom_id(inbox, :messages)
-
-    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    broadcast_update_to [room, "last_message"], target: "last-message-#{room.id}", partial: "messages/novabola_message",
+                                                locals: { message: self }
   end
+
+  max_paginates_per 10
   # after_create_commit -> { broadcast_prepend_to "messages", partial: "messages/message", locals: { quote: self }, target: "messages" }
   # broadcasts_to ->(message) { "messages" }, inserts_by: :prepend
   # after_create_commit -> { broadcast_append_to room }
