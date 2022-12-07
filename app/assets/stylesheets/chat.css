@@ -108,15 +108,19 @@ body {
 }
 
 
+/*
+
+Mobile
+
+*/
+
+
+
 @media screen  and (max-width: 600px){
   
   .chat-area {
     height: 95vh;
     overflow-y: auto;
-  }
-  
-  .messages-container {
-    position: relative;
   }
   
   .messages-container .top {
@@ -136,13 +140,10 @@ body {
   
   .bottom .form-group {
     margin: 0;
-    bottom: 0;
+    bottom: 0;    
+    width: 70em;
   }
   
-  .messages-container {
-    width: 70vw;
-    margin: auto;
-  }
   
   #messages {
     padding: 20px;
@@ -166,13 +167,17 @@ body {
   }
   
   
+  .messages-container {
+      width: 90vw;
+      margin: auto;
+      position: relative;
+      min-height: 100%;
+      justify-content: space-between;
+      
+    }
+
   #messages {
     width: 100%;
-  }
-  
-  .messages-container {
-    min-height: 100%;
-    justify-content: space-between;
   }
   
   .usi-side{
@@ -187,13 +192,13 @@ body {
   .usi-content {
     width: 100%;
     padding: 20px 0;
+  
   }
   
   
-  .usi-container {
-  /*seguinte, nesse aq eu apaguei tudo pq n tiha nada q c ia usar, mas deixei a classe
-  vazia pq vai q vc precise p algo dps pdp */
-  }
+ /* .usi-container {
+
+  }*/
   
   
   }
