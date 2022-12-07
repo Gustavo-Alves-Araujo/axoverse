@@ -5,7 +5,7 @@ class Message < ApplicationRecord
   # broadcasts_to :room
 
   after_create_commit do
-    broadcast_prepend_to [room, "coringa"], target: "coringas", partial: "messages/novabola_message",
+    broadcast_update_to [room, "coringa"], target: "coringass-#{room.id}", partial: "messages/novabola_message",
                                              locals: { message: self }
     # broadcast_prepend_to [inbox, :messages], target: ActionView::RecordIdentifier.dom_id(inbox, :messages)
 

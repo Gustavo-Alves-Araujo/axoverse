@@ -54,8 +54,8 @@
 
             <div class="usi-friend">
               <div class="usi-user"><%= contact_info(room).name%></div>
-              <div class="usi-text"><%= room.messages.last&.body%></div>
-
+              <%= turbo_stream_from room, "coringa" %>
+              <%= render 'messages/coringas', message: room.messages.last, room: room %>
             </div>
           </div>
         <% end %>
@@ -67,15 +67,12 @@
       <%= stylesheet_link_tag "chat.css", :media => "all" %>
 
       <style>
-        <%= ".msg-#{current_user&.id}" %> {
+        <%= ".msg-#{current_user&.id  }" %> {
         	background-color: rgb(143, 209, 117);
         	align-self: flex-end;
         	color: white !important;
         }
       </style>
-
-      <%= turbo_stream_from Room.find(url_for(only_path: true).split("/").last), "coringa" %>
-      <%= render 'messages/coringas', messages: @messages %>
 
       <div class="usi-content">
         <div class="chat-area bg-white" data-controller="scroll">
