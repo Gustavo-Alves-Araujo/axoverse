@@ -18,7 +18,7 @@
 }
 
 body {
-   min-width: 100vw;
+   max-width: 100vw;
    height: 100vh;
    background: linear-gradient(45deg, #382D42, #d69563, #4d4a69, #74AE9C, #A379B5, #A379B5, #D5BEE5);
    background-size: 400% 400%;
@@ -388,7 +388,7 @@ body {
 .home {
    background: linear-gradient(45deg, #382D42, rgb(214, 149, 99), rgb(77, 74, 105), #74AE9C, #A379B5, rgb(179, 138, 209), #D5BEE5);
    background-size: 400% 400%;
-   animation: colors 20s ease infinite;
+   animation: colors 1s ease infinite;
    width: 100%;
 }
 
@@ -412,22 +412,22 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    padding-left: 30px;
+    justify-content: left;
     border-bottom: 0.4px solid #FFF2E7;
-    max-width: 100%;
+    padding-bottom: 1%;
+    padding-top: 1%;
  }
 
 
  .cabecalho-logo {
-    height: 80px;
-    padding-right: 520px;
-
+    height: 3em;
+    margin-left: 87%;
 }
 
  .cabecalho-menu {
-    display: flex;
-    gap: 38px;
+   margin-left: 60%;
+   display: flex;
+   gap: 38px;
  }
 
  .cabecalho-menu-botao-login {
@@ -1211,7 +1211,6 @@ TELA DE EDITAR PERFIL
 
 
 
-
 .eu {
    position: relative;
    top: 52%;
@@ -1585,63 +1584,50 @@ Responsividade mobile
    */
 
    .cabecalho {
-      display:none;
+      max-width: 100%;
+      padding-bottom: 3%;
+      padding-top: 4%;
+      padding-right: 1%;
+   }
+       
+   .cabecalho-logo {
+      height: 2.5em;
+      margin-left: 1.5em;
    }
 
+   .cabecalho-menu {
+      margin-left: 30%;
+      gap: 0;
+   }
    
    .cabecalho-menu-botao-login {
-      width: 6em;
-      height: 3em;
-      margin-bottom: 3px;
-      font-size: 20px;
-      margin-right: -1em;
+      display: none;
     }
 
    
     .cabecalho-menu-botao-criar {
-      width: 6em;
-      height: 3em;
+      width: 100%;
+      height: 100%;
       margin-bottom: -5px;
       font-weight: 400;
       font-size: 20px;
-      padding: 2px;
+      padding: 4px;
    }
 
+   .conteudo-principal-escrito-titulo {
+      margin-top: 10px;
+      margin-bottom: 0px;
+   }
 
-      .cabecalho {
-
-         display: none;
-         flex-direction: row;
-         align-items: center;
-         justify-content: space-around;
-         border-bottom: 0.4px solid #FFF2E7;
-      }
-     
-     
-      .cabecalho-logo {
-         height: 7em;
-         padding-right: 20px;
-     
-     }
-     
-      .cabecalho-menu {
-         display: flex;
-         gap: 38px;
-      }
-
-
-      .conteudo-principal-escrito-titulo {
-         margin-top: 10px;
-         margin-bottom: 0px;
-      }
-
-      .conteudo-principal-escrito-subtitulo {
-         margin-top: -20px;
-      }
-    
-      .conteudo-principal-imagem {
-         display: none;
-     }
+   .conteudo-principal-escrito-subtitulo {
+      margin-top: -20px;
+      padding: 0 2em 0 0;
+      
+   }
+   
+   .conteudo-principal-imagem {
+      display: none;
+   }
      
      .conteudo-principal-escrito-botao {
       margin-top: -20px;
@@ -1670,11 +1656,11 @@ Responsividade mobile
       font-family: 'Sarala' sans-serif;
       font-weight: 400;
       font-size: 20px;
-      margin-left: -8px;
+      margin-left: -20px;
       margin-right: 4px;
       margin-top: -10px;  
       color: #FFF2E7;
-      
+      padding: 0 2em 0 1em;
    }
    
    .rodape {
@@ -1996,4 +1982,16 @@ Responsividade mobile
    .login-view-titulo {
       margin-left: 20%;
    }
+}
+
+@media screen  and (max-width: 375px){
+
+   .cabecalho-menu {
+      gap: 0;
+      margin-left: 0;
+   }
+   .cabecalho-menu-botao-criar {
+      margin-left: 30%;
+   }
+
 }
