@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/edit', to: 'users#edit'
   get '/profile', to: 'home#profile'
+  get '/ajudeme', to: 'home#ajudeme'
 
 
   resources :users, only: [:show, :edit, :update]
