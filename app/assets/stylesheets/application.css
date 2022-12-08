@@ -1341,7 +1341,6 @@ input[type='file'] {
 }
 
 .nu-user-recomendado-profile {
-   position: absolute;
    bottom: 0;
    left: 20px;
    background-color: #2b343b4d;

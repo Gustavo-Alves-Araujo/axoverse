@@ -13,10 +13,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-end
-
-  def previa
+  end
+  
+    
+    def previa
     end
+  
 
   def update
     if @user.update(user_params)
@@ -30,4 +32,5 @@ end
     def user_params
         params.require(:user).permit(:name, :profile_picture, :biografia, :age)
     end
+
 end
