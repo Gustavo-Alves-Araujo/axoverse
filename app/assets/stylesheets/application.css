@@ -18,7 +18,7 @@
 }
 
 body {
-   max-width: 100vw;
+   min-width: 100vw;
    height: 100vh;
    background: linear-gradient(45deg, #382D42, #d69563, #4d4a69, #74AE9C, #A379B5, #A379B5, #D5BEE5);
    background-size: 400% 400%;
@@ -401,7 +401,7 @@ body {
 .home {
    background: linear-gradient(45deg, #382D42, rgb(214, 149, 99), rgb(77, 74, 105), #74AE9C, #A379B5, rgb(179, 138, 209), #D5BEE5);
    background-size: 400% 400%;
-   animation: colors 1s ease infinite;
+   animation: colors 20s ease infinite;
    width: 100%;
 }
 
@@ -429,6 +429,7 @@ body {
     border-bottom: 0.4px solid #FFF2E7;
     padding-bottom: 1%;
     padding-top: 1%;
+    max-width: 100%;
  }
 
 
@@ -892,6 +893,176 @@ body {
 }
 
 
+/* 
+
+
+
+Tela de configurações do perfil
+
+
+
+
+
+*/
+
+.backconfig{
+top:50%;
+left:60%;
+width: 50%;
+height: 60%;
+transform: translate(40%, 10%);
+
+}
+
+
+.fundoconfig {
+   border-radius: 40px;
+   margin-right: 60%;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   padding: 4%;
+   width: min-content;
+   align-items: center;
+   border: solid 3px #6c6391;
+   background: #383438;
+   color: white;
+}
+   
+
+.emailconfig{
+   min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+.novasenha{min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+
+.senha{
+   min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+.confirmarsenha{min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+   .atualizarconfig {
+      margin-top: 30%;
+      margin-right: 50%;
+      width: 100%;
+      text-align: center;
+   }
+   
+   
+   
+   .atualizarconfig input {
+      font-family: 'Righteous', cursive;
+      background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+      width: 100%;
+      height: 40px;
+      border: none;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+   }
+
+.inputmail input {
+
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-5%);
+   color: white;
+   background: none;
+}
+
+
+.inputsenha input {
+
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-5%);
+   color: rgb(255, 255, 255);
+ 
+}
+.inputsenha input::placeholder{
+   color: rgb(205, 203, 203);
+}
+
+
+
+
+/*
+
+
+Tela Ajude-me
+
+
+*/
+
+
+.denuncie{
+   color: red
+}
+
+.backajudeme{ top:50%;
+   left:60%;
+   width: 50%;
+   height: 60%;
+   transform: translate(60%, 25%);  
+    }
+   
+   
+    .fundoajudeme{
+      border: solid 3px #59547c;
+      text-align: center;
+      align-items: center;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 20px;
+   color: white;
+   vertical-align: middle;
+   background: #383438;
+   padding: 25px;
+   width: 70%;
+   height: 75%;
+
+   }
+   .contatar{
+      text-align: center;   
+      font-family: 'Righteous', cursive;
+      background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+      width: 80%;
+      margin-top: 30%;
+      height: 40px;
+      border: none;
+      font-size: 1em;
+      color: white;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+   
+   }
 
 
 
@@ -1173,6 +1344,7 @@ input[type='file'] {
    position: absolute;
    bottom: 0;
    left: 20px;
+   background-color: #2b343b4d;
 }
 
 .nu-user-recomendado-name {
@@ -1436,6 +1608,10 @@ input[type='file'] {
    text-shadow: 1px 1px 3px #444;
 }
 
+.js-name-preview {
+   max-width: 300px;
+}
+
 .eu-card span {
    color: #FFF2E7;
    font-size: 24px;
@@ -1497,9 +1673,6 @@ Responsividade
 /*
 -
 -
--
--
--
 Responsividade mobile
 -
 -
@@ -1510,23 +1683,12 @@ Responsividade mobile
 
    @media screen  and (max-width: 600px){
 
-
-
-
-      /*
-
-
-      Login Mobile
-
-
-      */
-
-
      .devise {
          align-items: center;
          height: 100%;
-      }
 
+      }
+     
       .devise-conteudo-imagem{
          display:none;
       }
@@ -1543,12 +1705,12 @@ Responsividade mobile
          justify-content: center;
       }
 
+
       .devise-conteudo-imagem2 {
          animation: none;
          height: 200px;
          margin-left: 8%;
       }
-
 
 
       .login-view-titulo {
@@ -1557,7 +1719,7 @@ Responsividade mobile
          margin-top: 50px;
          margin-bottom: 6%;
       }
-
+      
       .login-view-input input {
          width: 80%;
          border: none;
@@ -1566,9 +1728,8 @@ Responsividade mobile
          transform: translateY(-10%);
          color: white;
          background: none;
-
       }
-
+      
       .login-view-input {
          min-width: 200px;
          width: 300px;
@@ -1578,14 +1739,9 @@ Responsividade mobile
          margin: 0px 0px 12px -5px;
       }
 
-
-
    /*
 
-
    Index Mobile
-
-
 
    */
 
@@ -1689,20 +1845,11 @@ Responsividade mobile
       padding: 0px;
     }
 
-
-
     /*
-
 
     Registre-se Mobile
 
-
-
-
-
      */
-
-
 
 
 .registration-view-titulo {
@@ -1746,8 +1893,6 @@ Responsividade mobile
    border-radius: 20px;
    margin-bottom: 10px;
 }
-
-
 
 /*
 -
@@ -1817,6 +1962,7 @@ Responsividade mobile
    justify-content: center;
    margin-top: 10px;
 }
+
 
 .nu-conteudo {
    width: 80%;
@@ -1899,13 +2045,10 @@ Responsividade mobile
    padding: 5px;
 }
 
-
  .field-picture label {
    border-radius: 5px;
    padding: 6px 20px
  }
-
-
 
 .nu-botoes {
    margin-top: 85%;
@@ -2000,10 +2143,6 @@ Responsividade mobile
       margin-left: 30%;
    }
 
-}
-
-
-
 .nu-user-recomendado img {
    opacity: 0.9;
 }
@@ -2016,7 +2155,6 @@ Responsividade mobile
    width: 33%;
    height: 33%;
 }
-
 
 .swiper-slide {
    text-align: center;
@@ -2049,10 +2187,176 @@ Responsividade mobile
    flex-direction: row;
 }
 
+/* 
 
 
-.usi-card {
-   display: flex;
-   flex-direction: column
+
+Editar dados mobile
+
+
+
+*/
+
+.backconfig{
+top:50%;
+left:50%;
+transform: translate(15%, 15%);
+
+}
+
+
+.fundoconfig {
+   border-radius: 40px;
+   margin-right: 50%;
+   width: 70%;
+   height: 140%;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   padding: 9%;
+   align-items: center;
+   border: solid 3px #6c6391;
+   background: #383438;
+   color: white;
+}
+   
+
+.emailconfig{
+   min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+.novasenha{min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+
+.senha{
+   width:100%;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+
+.confirmarsenha{min-width: 280px;
+   border-radius: 22px;
+   border: 2px #59547c solid;
+   padding: 5px;
+   margin: 0px 0px 12px -5px;
+   color: white;
+}
+   .atualizarconfig {
+      margin-top: 30%;
+      margin-right: 50%;
+      width: 100%;
+      text-align: center;
+   }
+   
+   
+   
+   .atualizarconfig input {
+      font-family: 'Righteous', cursive;
+      background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+      width: 100%;
+      height: 40px;
+      border: none;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+   }
+
+.inputmail input {
+
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-5%);
+   color: white;
+   background: none;
+}
+
+.inputsenha input {
+
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-5%);
+   color: rgb(0, 0, 0);
+ 
+}
+
+
+/*
+Ajude-me mobile
+
+
+*/
+.fundoajudeme{
+      border: solid 3px #59547c;
+      text-align: center;
+      align-items: center;
+   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 20px;
+   color: white;
+   vertical-align: middle;
+   background: #383438;
+   margin-left: -13%;
+   margin-top: 30%;
+   padding: 25px;
+   width: 100%;
+   height: 60%;
+}
+
+
+
+   .contatar{
+      text-align: center;   
+      font-family: 'Righteous', cursive;
+      background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+      width: 80%;
+      margin-top: 30%;
+      height: 40px;
+      border: none;
+      font-size: 0.6em;
+      color: white;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+   
+   }
+   
+
+
+   }
+
+
+
+@media screen and (min-width: 600px){
+   .devise-conteudo-imagem2 {
+      display: none;
+   }
+
+   .devise {
+   position: relative;
+   top: 50%;
+   left: 40%;
+   transform: translate(-50%, -50%);
+   }
+
+   .login-view-titulo {
+      margin-left: 20%;
+   }
 }
 

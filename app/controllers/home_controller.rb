@@ -6,6 +6,8 @@ class HomeController < ApplicationController
 
   def profile; end
 
+  def ajudeme; end
+
   def set_view_variables
     return unless current_user
 
