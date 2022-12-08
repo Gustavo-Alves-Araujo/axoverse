@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  scope :all_except_contacts_of, ->(user) { where.not(id: user.id).reject { |item| user.contacts.include?(item) } }
+  scope :all_except_contacts_of, ->(user) { where.not(id: user.id).select(&:valid?).reject { |item| user.contacts.include?(item) } }
 
   validates :name, :age, :biografia, presence: true, on: :update
 
