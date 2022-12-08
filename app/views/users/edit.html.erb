@@ -33,7 +33,7 @@
           <%= f.submit %>
         </div>
       <% end %>
-
+      </div>
       <div class="nu-card">
         <div class="nu-user-recomendado">
           <%= profile_picture_of(current_user) %>
@@ -47,11 +47,8 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
-
-
 <script>
   const nameField = document.querySelector('#user_name')
   const ageField = document.querySelector('#rangenumber')
@@ -77,7 +74,6 @@
     imagePreview.src = url
   })
 </script>
-
 <div class="popup">
   <div class="popup-container">
     <h1 class="popup-titulo"> Já está acabando ❤</h1>
@@ -87,8 +83,6 @@
     <button class="close-popup" onclick="popupClose()">Entendi!</button>
   </div>
 </div>
-
-
 <script>
   popupClose = function() {
     document.querySelector(".popup").classList.add("closed");
