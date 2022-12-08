@@ -19,22 +19,35 @@ export default class extends Controller {
 
   initialize() {
     this.scroll = this.scroll.bind(this);
+
+    this.element.scrollTop = this.element.scrollHeight - this.element.clientHeight;
   }
 
   connect() {
-    console.log(this.scroll)
-
-    this.element.addEventListener("scroll", this.scroll);
+    this.element.addEventListener('wheel', this.scroll);
   }
 
-  scroll() {
-    console.log(this.urlValue)
-    if (this.#pageEnd && !this.fetching && !this.hasNoRecordsTarget) {
-      // Add the spinner at the end of the page.
-      this.postsTarget.insertAdjacentHTML("beforeend", spinner);
+  scroll(e) {
+    const { wheelDelta, deltaY, scrollTop } = e;
 
-      this.#loadRecords();
-    }
+    var delta;
+        	if (event.wheelDelta){
+            	delta = event.wheelDelta;
+            }else{
+            	delta = -1 *event.deltaY;
+            }
+        	if (delta < 0){
+              // console.log('descendo')
+            }else if (delta > 0){
+              if(this.element.scrollTop == 0 ){
+
+                if(!this.fetching){
+                    this.#loadRecords();
+                }
+
+              }
+            }
+
   }
 
   // Send a turbo-stream request to the controller.
@@ -44,19 +57,16 @@ export default class extends Controller {
 
     this.fetching = true;
 
-    console.log(url)
-
     await get(url.toString(), {
       responseKind: "turbo-stream",
     });
 
-    this.fetching = false;
+    setTimeout(() => {
+      this.fetching = false;
+    }, 500);
+
     this.pageValue += 1;
   }
 
-  // Detect if we're at the bottom of the page.
-  get #pageEnd() {
-    const { scrollHeight, scrollTop, clientHeight } = this.element;
-    return scrollHeight - scrollTop - clientHeight < 40;
-  }
+
 }

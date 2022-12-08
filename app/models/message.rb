@@ -9,7 +9,7 @@ class Message < ApplicationRecord
                                                 locals: { message: self }
   end
 
-  max_paginates_per 10
+  max_paginates_per 7
   # after_create_commit -> { broadcast_prepend_to "messages", partial: "messages/message", locals: { quote: self }, target: "messages" }
   # broadcasts_to ->(message) { "messages" }, inserts_by: :prepend
   # after_create_commit -> { broadcast_append_to room }

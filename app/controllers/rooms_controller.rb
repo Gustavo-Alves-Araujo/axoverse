@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   def index
     @room = Room.new
 
-    @rooms = current_user.rooms.includes(:messages).order("messages.created_at asc").reverse
+    @rooms = current_user.rooms.includes(:messages)
 
     @contacts = current_user.contacts.reverse
   end
@@ -18,7 +18,9 @@ class RoomsController < ApplicationController
 
     chablau = @room.messages
 
-    @messages = Message.where(id: chablau.map(&:id)).order(created_at: :desc).page @page
+    # @messages = Message.where(id: chablau.map(&:id)).page @page
+
+    @messages = @room.messages.order(created_at: :desc).page(@page).reverse
 
     @new_room = Room.new
 
@@ -26,7 +28,10 @@ class RoomsController < ApplicationController
 
     @contacts = current_user.contacts.reverse
 
-    render 'home/index'
+    respond_to do |format|
+      format.html { render "home/index" }
+      format.turbo_stream
+    end
   end
 
   def create
