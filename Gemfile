@@ -29,6 +29,7 @@ gem "jbuilder"
 
 gem 'byebug'
 
+gem 'redis'
 
 # Use Redis adapter to run Action Cable in production
 
