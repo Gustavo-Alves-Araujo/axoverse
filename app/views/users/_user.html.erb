@@ -20,7 +20,7 @@
     <i class="fas fa-star fa"></i>
   </div>
   <div class="heart">
-    <%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
+    <%= form_with( model: Room.new, class: 'd-flex form-match d-none' ) do |f|%>
       <%= hidden_field_tag :receiver_user_id, user.id  %>
       <%= f.submit %>
     <% end %>

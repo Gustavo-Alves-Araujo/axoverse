@@ -2,7 +2,7 @@
   <div class="nu-conteudo">
     <div class="nu-conteudo-view">
       <h2 class="nu-titulo">Crie seu perfil</h2>
-      <%= form_with model: @user do |f| %>
+      <%= form_with model: @user, local: true, data: { turbo: false }do |f| %>
         <div class="nu-name-age">
           <div class="nu-nome">
             <%= f.label :"Digite o seu nome"%>

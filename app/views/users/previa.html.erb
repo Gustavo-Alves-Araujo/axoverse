@@ -2,7 +2,7 @@
   <div class="eu-conteudo">
     <div class="eu-conteudo-view">
       <h2 class="eu-titulo">Edite seu perfil </h2>
-      <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, local: true, data: { turbo: false } do |f| %>
         <div class="eu-name-age">
           <div class="eu-nome">
             <%= f.label :"Nome atual:"%>
