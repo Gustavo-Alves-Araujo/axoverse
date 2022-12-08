@@ -1383,10 +1383,6 @@ TELA DE EDITAR PERFIL
 
 
 .eu {
-   position: relative;
-   top: 52%;
-   left: 50%;
-   transform: translate(-50%, -50%);
    height: 90%;
    display: flex;
    justify-content: center;
@@ -1403,19 +1399,19 @@ TELA DE EDITAR PERFIL
 }
 
 .eu-conteudo-view {
-   margin-top: 30px;
+   margin-top: 5%;
    border-radius: 40px;
    width: min-content;
    align-items: center;
    color: white;
-   padding-left: 30px;
+   padding-left: 4%;
 }
 
 .eu-titulo {
    font-family:'sarala' sans-serif;
    font-size: 40px;
    color: white;
-   margin-bottom: 10px;
+   margin-bottom: 3%;
 }
 
 .eu-conteudo-view label{
@@ -1432,20 +1428,20 @@ TELA DE EDITAR PERFIL
 }
 
 .eu-nome {
-   padding-right: 20px;
+   padding-right: 10%;
 }
 
 .eu-input-name {
-   width: 260px;
+   width: 100%;
    border-radius: 22px;
    border: 2px #6f7e8a solid;
-   padding: 5px;
+   padding: 3%;
    margin: 0px 0px 12px -5px;
 }
 
 .eu-input-name i {
    font-size: 1.2em;
-   padding: 5px;
+   padding: 2%;
    background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
    -webkit-background-clip: text;
    background-clip: text;
@@ -1462,10 +1458,10 @@ TELA DE EDITAR PERFIL
 }
 
 .eu-input-age {
-   width: 80px;
+   width: 110%;
    border-radius: 22px;
    border: 2px #6f7e8a solid;
-   padding: 5px;
+   padding: 10%;
    margin: 0px 0px 12px -5px;
 }
 
@@ -1482,17 +1478,17 @@ TELA DE EDITAR PERFIL
 
 .eu-input-bio {
    min-width: 270px;
-   width: 400px;
-   height: 140px;
+   width: 100%;
+   height: 100%;
    border-radius: 22px;
    border: 2px #6f7e8a solid;
-   padding: 5px;
+   padding: 3%;
    margin: 0px 0px 12px -5px;
 }
 
 .eu-input-bio i {
    font-size: 1.2em;
-   padding: 5px;
+   padding: 3%;
    background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
    -webkit-background-clip: text;
    background-clip: text;
@@ -1513,7 +1509,7 @@ TELA DE EDITAR PERFIL
 
 .eu-file-title i {
    font-size: 1.2em;
-   padding: 5px;
+   padding: 3%;
    background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
    -webkit-background-clip: text;
    background-clip: text;
@@ -1529,19 +1525,19 @@ input[type='file'] {
    border-radius: 5px;
    color: #fff;
    cursor: pointer;
-   padding: 6px 20px
+   padding: 3% 5%;
  }
 
 
 
 .eu-botoes {
-   margin-top: 35px;
+   margin-top: 15%;
 }
 
 .eu-botoes input {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
-   height: 40px;
-   width: 400px;
+   height: 40%;
+   width: 100%;
    border: none;
    font-size: 1.2em;
    color: white;
@@ -1554,22 +1550,22 @@ input[type='file'] {
 
 .eu-card {
    position: relative;
-   height: 400px;
-   margin-left: 140px;
-   margin-top: 60px;
+   height: 100%;
+   margin-left: 15%;
+   margin-top: 10%;
 }
 
 .eu-user-recomendado {
-   width: 350px;
-   height: 400px;
+   width: 100%;
+   height: 50%;
    object-fit: cover;
    border-radius: 20px;
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 }
 
 .eu-user-recomendado img { 
-   width: 350px;
-   height: 400px;
+   width: 96%;
+   height: 110%;
    object-fit: cover;
    border-radius: 20px;
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
@@ -1578,7 +1574,7 @@ input[type='file'] {
 .eu-user-recomendado-profile {
    position: absolute;
    bottom: 0;
-   left: 20px;
+   left: 4%;
 }
 
 .eu-user-recomendado-name {
@@ -2301,13 +2297,242 @@ Ajude-me mobile
       margin-bottom: 10px;
    
    }
+
+     /*
+-
+-
+-
+-
+tela de editar perfil mobile 
+-
+-
+-
+-
+-
+*/
+
+
+
+.eu {
+   align-items: center;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.eu-conteudo {
+   width: 90%;
+   display: flex;
+   align-items: center;
+   height: 90%;
+   justify-content: center;
+   margin:auto;
+}
+
+.eu-conteudo-view {
+    position: absolute;
+   align-items: left;
+   padding-left: 4%;
+   max-width: 100%;
+}
+
+.eu-titulo {
+   margin-bottom: 30%;
+}
+
+.eu-conteudo-view label{
+ font-size: 20px;
+}
+
+.eu-conteudo-view input {
+   background: none;
+}
+
+.eu-name-age {
+   display: flex;
+   flex-direction: row;
+}
+
+.eu-nome {
+   padding-right: 10%;
+}
+
+.eu-input-name {
+   width: 100%;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 3%;
+   margin: 0px 0px 12px -5px;
+}
+
+.eu-input-name i {
+   font-size: 1.2em;
+   padding: 2%;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.eu-input-name input {
+   width: 80%;
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-10%);
+   color: white;
+}
+
+.eu-input-age {
+   width: 110%;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 10%;
+   margin: 0px 0px 12px -5px;
+}
+
+
+.eu-input-age input {
+   background: none;
+   width: 80%;
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   transform: translateY(-10%);
+   color: white;
+}
+
+.eu-input-bio {
+   min-width: 270px;
+   width: 100%;
+   height: 100%;
+   border-radius: 22px;
+   border: 2px #6f7e8a solid;
+   padding: 3%;
+   margin: 0px 0px 12px -5px;
+}
+
+.eu-input-bio i {
+   font-size: 1.2em;
+   padding: 3%;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.eu-input-bio textarea {
+   background-color: #11e29900;
+   border: none;
+   outline: none;
+   font-family: 'Sarala', sans-serif;
+   color: white;
+}
+
+.eu-file-title {
+   font-size: 20px;
+}
+
+.eu-file-title i {
+   font-size: 1.2em;
+   padding: 3%;
+   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+input[type='file'] {
+   display: none
+ }
+ 
+ .field-picture label {
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
+   border-radius: 5px;
+   color: #fff;
+   cursor: pointer;
+   padding: 3% 5%;
+ }
+
+
+
+.eu-botoes {
+   margin-top: 15%;
+}
+
+.eu-botoes input {
+   background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
+   height: 40%;
+   width: 100%;
+   border: none;
+   font-size: 1.2em;
+   color: white;
+   border-radius: 20px;
+   outline: none;
+   cursor: pointer;
+   padding: 5px;
+}
+
+
+.eu-card {
+   display:none;
+   position: relative;
+   height: 100%;
+   margin-left: 15%;
+   margin-top: 10%;
+}
+
+.eu-user-recomendado {
+   display:none;
+   width: 100%;
+   height: 50%;
+   object-fit: cover;
+   border-radius: 20px;
+   box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.eu-user-recomendado img { 
+   width: 96%;
+   height: 110%;
+   object-fit: cover;
+   border-radius: 20px;
+   box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.eu-user-recomendado-profile {
+   position: absolute;
+   bottom: 0;
+   left: 4%;
+}
+
+.eu-user-recomendado-name {
+   color: #FFF2E7;
+   font-size: 28px;
+   font-weight: 700;
+   letter-spacing: 0.5px;
+   text-shadow: 1px 1px 3px #444;
+}
+
+.eu-user-recomendado-age {
+   color: #FFF2E7;
+   font-size: 28px;
+   font-weight: 700;
+   letter-spacing: 0.5px;
+   text-shadow: 1px 1px 3px #444;
+}
+
+.js-name-preview {
+   max-width: 300px;
+}
+
+.eu-card span {
+   color: #FFF2E7;
+   font-size: 24px;
+   font-weight: 700;
+}
+
+}
    
-
-
-   }
-
-
-
 @media screen and (min-width: 600px){
    .devise-conteudo-imagem2 {
       display: none;
@@ -2323,5 +2548,24 @@ Ajude-me mobile
    .login-view-titulo {
       margin-left: 20%;
    }
+
+
+.eu {
+
+   position: relative;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
+
+}
+
+
+@media screen and (max-width: 420px;){
+   
+   
+}
+
+
+ 
