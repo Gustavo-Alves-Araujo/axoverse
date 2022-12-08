@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_user
-    before_action :authenticate_user
+  before_action :set_user
+  before_action :authenticate_user
 
   def set_user
     @user = User.find(params[:id])
@@ -12,15 +12,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def edit
-  end
+  def edit; end
 
-
-   def previa
-    end
-
+  def previa; end
 
   def update
+    @user.age = params[:user][:age] || 18
+
     if @user.update(user_params)
       redirect_to root_path, notice: "Usuário editado"
     else
@@ -30,6 +28,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-      params.require(:user).permit(:name, :profile_picture, :biografia, :age)
+    params.require(:user).permit(:name, :profile_picture, :biografia, :age)
   end
 end
