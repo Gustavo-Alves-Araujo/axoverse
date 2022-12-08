@@ -6,29 +6,32 @@ class RoomsController < ApplicationController
   def index
     @room = Room.new
 
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.includes(:messages)
 
-    @contacts = current_user.contacts
-  end
-
-  def list
-    @room = Room.new
-
-    @users_to_chat_with = User.all_except_contacts_of(current_user).first(1)
+    @contacts = current_user.contacts.reverse
   end
 
   def show
     @message = Message.new
 
-    @messages = @room.messages.order(created_at: :asc)
+    @page = params[:page] || 1
+
+    chablau = @room.messages
+
+    # @messages = Message.where(id: chablau.map(&:id)).page @page
+
+    @messages = @room.messages.order(created_at: :desc).page(@page).reverse
 
     @new_room = Room.new
 
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.includes(:messages).order("messages.created_at asc").reverse
 
-    @contacts = current_user.contacts
+    @contacts = current_user.contacts.reverse
 
-    render 'home/index'
+    respond_to do |format|
+      format.html { render "home/index" }
+      format.turbo_stream
+    end
   end
 
   def create

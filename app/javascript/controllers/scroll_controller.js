@@ -4,8 +4,13 @@ export default class extends Controller {
   connect() {
     this.scrollToBottom();
 
-    this.element.addEventListener('DOMNodeInserted', () => {
-      this.scrollToBottom()
+    this.element.addEventListener('DOMNodeInserted', (event) => {
+      const { target } = event;
+      if(target instanceof HTMLElement) {
+        if(target.classList.contains('not-pagination')) {
+          this.scrollToBottom()
+        }
+      }
     })
 
   }

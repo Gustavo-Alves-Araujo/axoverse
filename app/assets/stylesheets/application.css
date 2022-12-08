@@ -173,6 +173,7 @@ body {
 
 .usi-container {
    display: flex;
+   flex-direction: row;
 }
 
 .usi-side {
@@ -268,6 +269,18 @@ body {
    box-shadow: 0 0 15px 0 rgba(43,78,78,01);
    border-right: 5px solid #aa22cc;
    cursor: pointer;
+}
+
+.selected-user {
+   box-shadow: 0 0 15px 0 rgba(43,78,78,01);
+   border-right: 5px solid #aa22cc;
+   cursor: pointer;
+}
+
+.btn-primary {
+   box-shadow: 0 0 15px 0 rgba(43,78,78,01);
+   border: 5px solid #aa22cc;
+   background-color: #aa22cc;
 }
 
 .usi-content {
@@ -412,22 +425,23 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    padding-left: 30px;
+    justify-content: left;
     border-bottom: 0.4px solid #FFF2E7;
+    padding-bottom: 1%;
+    padding-top: 1%;
     max-width: 100%;
  }
 
 
  .cabecalho-logo {
-    height: 80px;
-    padding-right: 520px;
-
+    height: 3em;
+    margin-left: 87%;
 }
 
  .cabecalho-menu {
-    display: flex;
-    gap: 38px;
+   margin-left: 60%;
+   display: flex;
+   gap: 38px;
  }
 
  .cabecalho-menu-botao-login {
@@ -519,7 +533,7 @@ body {
 @keyframes floating {
    0% { transform: translate(0,  0px); }
    50%  { transform: translate(0, 70px); }
-   100%   { transform: translate(0, -0px); }   
+   100%   { transform: translate(0, -0px); }
 }
 
 .conteudo-secundario {
@@ -612,7 +626,7 @@ body {
    0% { transform: translate(0,  0px); }
    25%  { transform: translate(0, 20px); }
    75%  { transform: translate(0, -20px); }
-   100%   { transform: translate(0, 0px); }   
+   100%   { transform: translate(0, 0px); }
 }
 
 
@@ -831,7 +845,7 @@ body {
 }
 
 .password-view-input input{
-   background: none; 
+   background: none;
    color: rgb(255, 250, 250);
 }
 
@@ -1274,7 +1288,7 @@ Tela Ajude-me
 input[type='file'] {
    display: none
  }
- 
+
  .field-picture label {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
    border-radius: 5px;
@@ -1318,7 +1332,7 @@ input[type='file'] {
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 }
 
-.nu-user-recomendado img { 
+.nu-user-recomendado img {
    width: 350px;
    height: 400px;
    object-fit: cover;
@@ -1347,10 +1361,6 @@ input[type='file'] {
    text-shadow: 1px 1px 3px #444;
 }
 
-.js-name-preview {
-   max-width: 300px;
-   word-wrap: break-word;
-}
 
 .nu-card span {
    color: #FFF2E7;
@@ -1374,7 +1384,6 @@ TELA DE EDITAR PERFIL
 -
 -
 */
-
 
 
 
@@ -1523,7 +1532,7 @@ TELA DE EDITAR PERFIL
 input[type='file'] {
    display: none
  }
- 
+
  .field-picture label {
    background: linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8);
    border-radius: 5px;
@@ -1567,7 +1576,7 @@ input[type='file'] {
    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 }
 
-.eu-user-recomendado img { 
+.eu-user-recomendado img {
    width: 350px;
    height: 400px;
    object-fit: cover;
@@ -1660,11 +1669,8 @@ Responsividade
 
 
 /*
-- 
-- 
-- 
-- 
-- 
+-
+-
 Responsividade mobile
 -
 -
@@ -1675,23 +1681,12 @@ Responsividade mobile
 
    @media screen  and (max-width: 600px){
 
-   
-      
-
-      /*
-
-
-      Login Mobile 
-
-
-      */
-      
-
      .devise {
          align-items: center;
          height: 100%;
-      } 
 
+      }
+     
       .devise-conteudo-imagem{
          display:none;
       }
@@ -1708,20 +1703,20 @@ Responsividade mobile
          justify-content: center;
       }
 
-      .devise-conteudo-imagem2 {  
+
+      .devise-conteudo-imagem2 {
          animation: none;
          height: 200px;
          margin-left: 8%;
       }
 
-      
-   
+
       .login-view-titulo {
          font-size: 70px;
          text-align: center;
          margin-top: 50px;
          margin-bottom: 6%;
-      } 
+      }
       
       .login-view-input input {
          width: 80%;
@@ -1731,7 +1726,6 @@ Responsividade mobile
          transform: translateY(-10%);
          color: white;
          background: none;
-         
       }
       
       .login-view-input {
@@ -1745,76 +1739,60 @@ Responsividade mobile
 
    /*
 
-
-   Index Mobile 
-
-
+   Index Mobile
 
    */
 
    .cabecalho {
-      display:none;
+      max-width: 100%;
+      padding-bottom: 3%;
+      padding-top: 4%;
+      padding-right: 1%;
    }
 
-   
+   .cabecalho-logo {
+      height: 2.5em;
+      margin-left: 1.5em;
+   }
+
+   .cabecalho-menu {
+      margin-left: 30%;
+      gap: 0;
+   }
+
    .cabecalho-menu-botao-login {
-      width: 6em;
-      height: 3em;
-      margin-bottom: 3px;
-      font-size: 20px;
-      margin-right: -1em;
+      display: none;
     }
 
-   
+
     .cabecalho-menu-botao-criar {
-      width: 6em;
-      height: 3em;
+      width: 100%;
+      height: 100%;
       margin-bottom: -5px;
       font-weight: 400;
       font-size: 20px;
-      padding: 2px;
+      padding: 4px;
    }
 
+   .conteudo-principal-escrito-titulo {
+      margin-top: 10px;
+      margin-bottom: 0px;
+   }
 
-      .cabecalho {
+   .conteudo-principal-escrito-subtitulo {
+      margin-top: -20px;
+      padding: 0 2em 0 0;
 
-         display: none;
-         flex-direction: row;
-         align-items: center;
-         justify-content: space-around;
-         border-bottom: 0.4px solid #FFF2E7;
-      }
-     
-     
-      .cabecalho-logo {
-         height: 7em;
-         padding-right: 20px;
-     
-     }
-     
-      .cabecalho-menu {
-         display: flex;
-         gap: 38px;
-      }
+   }
 
+   .conteudo-principal-imagem {
+      display: none;
+   }
 
-      .conteudo-principal-escrito-titulo {
-         margin-top: 10px;
-         margin-bottom: 0px;
-      }
-
-      .conteudo-principal-escrito-subtitulo {
-         margin-top: -20px;
-      }
-    
-      .conteudo-principal-imagem {
-         display: none;
-     }
-     
      .conteudo-principal-escrito-botao {
       margin-top: -20px;
    }
-   
+
      .conteudo-secundario {
       display: flex;
       flex-direction: column;
@@ -1822,7 +1800,7 @@ Responsividade mobile
       gap: 24px;
       margin-top: 48px;
    }
-   
+
    .conteudo-secundario-titulo {
       border-top: 0.4px solid #FFF2E7;
       padding-top: 48px;
@@ -1833,25 +1811,25 @@ Responsividade mobile
       color: #FFF2EF;
       margin-bottom: 16px;
    }
-   
+
    .conteudo-secundario-paragrafo {
       font-family: 'Sarala' sans-serif;
       font-weight: 400;
       font-size: 20px;
-      margin-left: -8px;
+      margin-left: -20px;
       margin-right: 4px;
-      margin-top: -10px;  
+      margin-top: -10px;
       color: #FFF2E7;
-      
+      padding: 0 2em 0 1em;
    }
-   
+
    .rodape {
       border-top: 0.4px solid #FFF2E7;
       display: flex;
       align-items: center;
       justify-content: center;
    }
-   
+
    .rodape-titulo {
       background-image: radial-gradient(circle at 50% -20.71%, #badbff 0, #c2daff 6.25%, #c9d8ff 12.5%, #d0d6ff 18.75%, #d8d4ff 25%, #dfd2fe 31.25%, #e6d0fa 37.5%, #eccff6 43.75%, #f2cdf2 50%, #f7cced 56.25%, #fccbe8 62.5%, #ffcae2 68.75%, #ffc9dd 75%, #ffc9d7 81.25%, #ffc9d1 87.5%, #ffc9cc 93.75%, #ffcac6 100%);
       background-clip: text;
@@ -1865,20 +1843,11 @@ Responsividade mobile
       padding: 0px;
     }
 
-
-    
     /*
-
 
     Registre-se Mobile
 
-
-
-
-
      */
-
-
 
 
 .registration-view-titulo {
@@ -1922,8 +1891,6 @@ Responsividade mobile
    border-radius: 20px;
    margin-bottom: 10px;
 }
-
-  
 
 /*
 -
@@ -1994,11 +1961,12 @@ Responsividade mobile
    margin-top: 10px;
 }
 
-.nu-conteudo { 
+
+.nu-conteudo {
    width: 80%;
    margin-top: 9%;
    display: flex;
-   flex-direction: row; 
+   flex-direction: row;
    align-items: top;
    height: 100%;
    border-radius: 10px;
@@ -2075,13 +2043,10 @@ Responsividade mobile
    padding: 5px;
 }
 
- 
  .field-picture label {
    border-radius: 5px;
    padding: 6px 20px
  }
-
-
 
 .nu-botoes {
    margin-top: 85%;
@@ -2107,13 +2072,14 @@ Responsividade mobile
    width: 15em;
    height: 15em;
    border-radius: 10px;
-
+   position: relative;
 }
 
-.nu-user-recomendado img { 
+.nu-user-recomendado img {
    width: 15em;
    height: 15em;
    border-radius: 10px;
+   position: absolute;
 }
 
 .nu-user-recomendado-profile {
@@ -2139,7 +2105,6 @@ Responsividade mobile
 
 .js-name-preview {
    max-width: 300px;
-
 }
 
 .nu-card span {
@@ -2147,16 +2112,84 @@ Responsividade mobile
    font-weight: 700;
 }
 
+}
 
+@media screen and (min-width: 600px){
+   .devise-conteudo-imagem2 {
+      display: none;
+   }
 
+   .devise {
+   position: relative;
+   top: 50%;
+   left: 40%;
+   transform: translate(-50%, -50%);
+   }
+
+   .login-view-titulo {
+      margin-left: 20%;
+   }
+}
+
+@media screen  and (max-width: 375px){
+
+   .cabecalho-menu {
+      gap: 0;
+      margin-left: 0;
+   }
+   .cabecalho-menu-botao-criar {
+      margin-left: 30%;
+   }
+
+.nu-user-recomendado img {
+   opacity: 0.9;
+}
+
+.usi-content {
+   border: red 3px solid;
+}
+
+.swiper {
+   width: 33%;
+   height: 33%;
+}
+
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: none;
+   /* Center slide text vertically */
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   -webkit-align-items: center;
+   align-items: center;
+}
+
+.swiper-slide img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.swiper-wrapper {
+   display: flex;
+   flex-direction: row;
+}
 
 /* 
 
 
 
 Editar dados mobile
-
-
 
 
 

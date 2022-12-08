@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user %>
   <div class="actiom">
     <div class="profile-settings" onclick="menuToggle();">
       <%= profile_picture_of(current_user)%>
@@ -8,7 +8,7 @@
       <ul>
         <li><i class="fa-solid fa-user"></i> <%= link_to "editar perfil", previa_user_path(current_user) %></li>
         <li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <%= link_to "Configurações", edit_user_registration_path %></li>
-        <li><i class="fa-solid fa-circle-question"></i> <a href="/ajudeme">Ajude-me</a></li>
+        <li><i class="fa-solid fa-circle-question"></i> <a href="#">Ajude-me</a></li>
         <li><i class="fa-solid fa-right-from-bracket"></i> <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'botao-sair' %></li>
       </ul>
     </div>
@@ -31,73 +31,95 @@
       </div>
       <div class="usi-menu">
         <ul>
-          <li><%= link_to 'Matches', root_path%></li>
-          <li class="usi-active">Chats</li>
+          <li><%= link_to 'Matches', root_path, class: "#{url_for(only_path: true).split("/")[1] == nil ? 'usi-active' : ''}" %> </li>
+          <li><%= link_to 'Chats', root_path, class: "#{url_for(only_path: true).split("/")[1] == 'rooms' ? 'usi-active' : ''}" %> </li>
         </ul>
       </div>
       <%= turbo_stream_from @room %>
-      <% @rooms.each do |room|%>
-        <%= link_to room_path(room) do %>
-          <div class="usi-messages">
-            <div class="usi-avatar">
-              <%= profile_picture_of(contact_info(room))%>
+      <div class="contacts">
+        <% @rooms.each do |room|%>
+          <%= link_to room_path(room) do %>
+            <div class="usi-messages <%= url_for(only_path: true).split("/")[2].to_i == room.id && 'selected-user'%>">
+              <div class="usi-avatar">
+                <%= profile_picture_of(contact_info(room))%>
+              </div>
+              <div class="usi-friend">
+                <div class="usi-user"><%= contact_info(room).name%>
+                </div>
+                <%= turbo_stream_from room, "last_message" %>
+                <%= render 'messages/coringas', message: room.messages.last, room: room %>
+              </div>
             </div>
-            <div class="usi-friend">
-              <div class="usi-user"><%= contact_info(room).name%></div>
-              <div class="usi-text"><%= room.messages.last&.body%></div>
-            </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <% if @messages%>
       <%= stylesheet_link_tag "chat.css", :media => "all" %>
       <style>
-        <%= ".msg-#{current_user&.id}" %> {
+        <%= ".msg-#{current_user&.id  }" %> {
         	background-color: rgb(143, 209, 117);
         	align-self: flex-end;
         	color: white !important;
         }
       </style>
       <div class="usi-content">
-        <div class="chat-area bg-white" data-controller="scroll">
-          <%= turbo_stream_from "messages" %>
-          <%= render 'messages/messages', messages: @messages %>
+        <div class="chat-area bg-white" data-controller="scroll reverse-pagination" data-reverse-pagination-target="posts"
+          data-reverse-pagination-url-value="<%= room_url(@room) %>"
+          data-reverse-pagination-page-value="<%= 2 %>">
+          <div class="messages-container" >
+            <div class="top" style="display: flex; padding: 1.34rem; gap: 1.34rem">
+              <h3> <%= contact_info(@room).name %> </h3>
+            </div>
+            <div id="messages">
+              <%= turbo_stream_from "messages" %>
+              <%= render @messages %>
+            </div>
+            <div class="bottom">
+              <%= render 'messages/new_message', message: @message, room: @room%>
+            </div>
+          </div>
         </div>
       </div>
     <% else %>
-      <div class="usi-content">
-        <% @users_to_chat_with.each do |user| %>
-          <div class="usi-card">
-            <div class="usi-user-recomendado">
-              <%= profile_picture_of(user, 'usi-user-recomendado')%>
-              <div class="usi-user-recomendado-profile">
-                <div class="usi-user-recomendado-name"><%= user.name %> <span><%= user.age%></span> </div>
-                <div class="usi-user-recomendado-local">
-                  <i class="fas fa-map-marker alt"></i>
-                  <span>Itaquera, São Paulo</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="usi-buttons">
-            <div class="no">
-              <i class="fas fa-times"></i>
-            </div>
-            <div class="star">
-              <i class="fas fa-star fa"></i>
-            </div>
-            <div class="heart">
-              <%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
-                <%= hidden_field_tag :receiver_user_id, user.id  %>
-                <%= f.submit %>
-              <% end %>
-              <i class="fas fa-heart" id="chat-with" data-controller="match" data-action="click->match#submitForm"></i>
-            </div>
-          </div>
-        <% end %>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+
+        console.log(swiper)
+      </script>
+
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <div class="swiper mySwiper">
+      <div class="usi-content swiper-wrapper" id="posts" class="grid grid-cols-12 gap-4"
+          data-controller="pagination"
+          data-pagination-target="posts"
+          data-pagination-url-value="<%= root_url %>"
+          data-pagination-page-value="<%= 2 %>">
+        <%= render @users_to_chat_with %>
       </div>
+      <div class="swiper-scrollbar"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+      });
+    </script>
+  </div>
   <% end %>
 <% else %>
   <div class="home">

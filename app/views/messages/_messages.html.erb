@@ -1,6 +1,8 @@
 <div class="messages-container">
   <div class="top" style="display: flex; padding: 1.34rem; gap: 1.34rem">
     <h3>
+      <%= profile_picture_of(current_user)%>
+
       <%= contact_info(@room).name %>
     </h3>
   </div>

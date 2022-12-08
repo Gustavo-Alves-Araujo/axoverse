@@ -1,1 +1,3 @@
-<%= turbo_streaasdmaskmdaskm "quotes", @created_quote %>
+<%= turbo_stream.prepend "messages" do %>
+  <%= render @messages, pagination: true %>
+<% end %>
