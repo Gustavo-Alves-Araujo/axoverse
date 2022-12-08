@@ -27,6 +27,8 @@ class HomeController < ApplicationController
   def check_user_completed
     return if current_user&.valid? || !current_user
 
+    return if current_user.age && current_user.biografia
+
     redirect_to edit_user_path(current_user)
   end
 end
