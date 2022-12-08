@@ -26,9 +26,10 @@ class UsersController < ApplicationController
     else
       flash[:error] = 'Algo deu muito errado, por favor digite novamente'
       render :edit
-
-    def user_params
-        params.require(:user).permit(:name, :profile_picture, :biografia, :age)
     end
+  end
+
+  def user_params
+      params.require(:user).permit(:name, :profile_picture, :biografia, :age)
   end
 end
