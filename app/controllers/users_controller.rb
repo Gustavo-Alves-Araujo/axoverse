@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user
-  before_action :authenticate_user
+    before_action :set_user
+    before_action :authenticate_user
 
   def set_user
     @user = User.find(params[:id])
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
   
     
-    def previa
+   def previa
     end
   
 
@@ -26,11 +26,8 @@ class UsersController < ApplicationController
     else
       flash[:error] = 'Algo deu muito errado, por favor digite novamente'
       render :edit
-    end
-  end
 
-    def user_params
+    def user_params 
         params.require(:user).permit(:name, :profile_picture, :biografia, :age)
     end
-
 end

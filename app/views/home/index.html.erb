@@ -8,7 +8,7 @@
       <ul>
         <li><i class="fa-solid fa-user"></i> <%= link_to "editar perfil", previa_user_path(current_user) %></li>
         <li><i class="fa-sharp fa-solid fa-screwdriver-wrench"></i> <%= link_to "Configurações", edit_user_registration_path %></li>
-        <li><i class="fa-solid fa-circle-question"></i> <a href="#">Ajude-me</a></li>
+        <li><i class="fa-solid fa-circle-question"></i> <a href="/ajudeme">Ajude-me</a></li>
         <li><i class="fa-solid fa-right-from-bracket"></i> <%= button_to "Sair", destroy_user_session_path, method: :delete, class:'botao-sair' %></li>
       </ul>
     </div>

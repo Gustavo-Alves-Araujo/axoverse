@@ -11,19 +11,21 @@
     </div>
   </div>
 
-    <div class="usi-buttons">
-      <div class="no">
-        <i class="fas fa-times"></i>
-      </div>
-      <div class="star">
-        <i class="fas fa-star fa"></i>
-      </div>
-      <div class="heart">
-        <%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
-          <%= hidden_field_tag :receiver_user_id, user.id  %>
-          <%= f.submit %>
-        <% end %>
-        <i class="fas fa-heart" id="chat-with" data-controller="match" data-action="click->match#submitForm"></i>
-      </div>
-    </div>
+
+<div class="usi-buttons">
+  <div class="no">
+    <i class="fas fa-times"></i>
+  </div>
+  <div class="star">
+    <i class="fas fa-star fa"></i>
+  </div>
+  <div class="heart">
+    <%= form_with( model: Room.new, class: 'd-flex form-match d-none') do |f|%>
+      <%= hidden_field_tag :receiver_user_id, user.id  %>
+      <%= f.submit %>
+    <% end %>
+    <i class="fas fa-heart" id="chat-with" data-controller="match" data-action="click->match#submitForm"></i>
+  </div>
 </div>
+</div>
+
