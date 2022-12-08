@@ -1,55 +1,69 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_room, only: %i[show]
-  before_action :set_characters, only: %i[show]
+  before_action :authenticate_room_users, only: %i[show]
 
   def index
     @room = Room.new
 
-    @rooms = avaiable_rooms
+    @rooms = current_user.rooms.includes(:messages)
 
-    @users_to_chat_with = User.all_except(current_user)
+    @contacts = current_user.contacts.reverse
   end
 
   def show
-    @rooms = avaiable_rooms
-
     @message = Message.new
 
-    @messages = @room.messages.order(created_at: :asc)
+    @page = params[:page] || 1
+
+    chablau = @room.messages
+
+    # @messages = Message.where(id: chablau.map(&:id)).page @page
+
+    @messages = @room.messages.order(created_at: :desc).page(@page).reverse
+
+    @new_room = Room.new
+
+    @rooms = current_user.rooms.includes(:messages).order("messages.created_at asc").reverse
+
+    @contacts = current_user.contacts.reverse
+
+    respond_to do |format|
+      format.html { render "home/index" }
+      format.turbo_stream
+    end
   end
 
   def create
-    sender = current_user.email
-    receiver = params[:user]
-    # room_name = "ROOM: #{sender}-#{receiver}" # not required
+    sender_user = current_user
+    receiver_user = User.find(params[:receiver_user_id])
 
-    @room = Room.create(sender_email: sender, receiver_email: receiver)
+    @room = Room.new
 
-    redirect_to room_path(@room)
+    @room.users.push(sender_user, receiver_user)
+
+    if @room.save
+      redirect_to room_path(@room)
+    else
+      flash[:alert] = @room.errors.full_messages
+
+      redirect_to root_path
+    end
   end
 
   private
 
-  def avaiable_rooms = room_where_user_is_sender.or(room_where_user_is_receiver)
-
-  def room_where_user_is_sender = Room.where(sender_email: current_user_email)
-
-  def room_where_user_is_receiver = Room.where(receiver_email: current_user_email)
-
   def current_user_email = current_user.email
 
-  def set_room
-   @room = Room.find(params[:id])
+  def authenticate_room_users
+    set_room
+
+    return if @room.users.include?(current_user)
+
+    redirect_to root_path
   end
 
-  def set_characters
-    if @room.sender_email != current_user.email
-      @user = @room.receiver_email
-      @contact = @room.sender_email
-    else
-      @user = @room.sender_email
-      @contact = @room.receiver_email
-    end
+  def set_room
+    @room = Room.find(params[:id])
   end
 end

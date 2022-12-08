@@ -27,8 +27,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'byebug'
+
+gem 'redis'
+
 # Use Redis adapter to run Action Cable in production
+
 gem "redis", "~> 4.0"
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -77,3 +83,10 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 
 gem "hotwire-rails", "~> 0.1.3"
+
+gem 'htmlbeautifier'
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
+
+gem 'kaminari'
+

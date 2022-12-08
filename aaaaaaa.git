@@ -1,0 +1,418 @@
+diff --git a/Gemfile.lock b/Gemfile.lock
+index 52c8a74..5fadc35 100644
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -99,6 +99,10 @@ GEM
+     erubi (1.11.0)
+     globalid (1.0.0)
+       activesupport (>= 5.0)
++    hotwire-rails (0.1.3)
++      rails (>= 6.0.0)
++      stimulus-rails
++      turbo-rails
+     i18n (1.12.0)
+       concurrent-ruby (~> 1.0)
+     importmap-rails (1.1.5)
+@@ -174,6 +178,7 @@ GEM
+       thor (~> 1.0)
+       zeitwerk (~> 2.5)
+     rake (13.0.6)
++    redis (4.8.0)
+     regexp_parser (2.6.0)
+     reline (0.3.0)
+       io-console (~> 0.5)
+@@ -235,12 +240,14 @@ DEPENDENCIES
+   debug
+   devise (~> 4.8)
+   devise-i18n
++  hotwire-rails (~> 0.1.3)
+   importmap-rails
+   jbuilder
+   letter_opener
+   puma (~> 5.0)
+   rails (~> 7.0.4)
+   rails-i18n
++  redis (~> 4.0)
+   selenium-webdriver
+   sprockets-rails
+   sqlite3 (~> 1.4)
+diff --git a/app/assets/images/axohome.png b/app/assets/images/axohome.png
+index 8e066b3..b984223 100644
+Binary files a/app/assets/images/axohome.png and b/app/assets/images/axohome.png differ
+diff --git a/app/assets/images/axologin.png b/app/assets/images/axologin.png
+index dede0c6..7992d4a 100644
+Binary files a/app/assets/images/axologin.png and b/app/assets/images/axologin.png differ
+diff --git a/app/assets/stylesheets/application.css b/app/assets/stylesheets/application.css
+index e207171..4ec9de1 100644
+--- a/app/assets/stylesheets/application.css
++++ b/app/assets/stylesheets/application.css
+@@ -510,8 +510,17 @@ body {
+ }
+ 
+ .conteudo-principal-imagem {
+-   height: 350px;
++    animation-name: floating;
++    animation-duration: 8s;
++    animation-iteration-count: infinite;
++    animation-timing-function: ease-in-out;
++    height: 350px;
++}
+ 
++@keyframes floating {
++   0% { transform: translate(0,  0px); }
++   50%  { transform: translate(0, 70px); }
++   100%   { transform: translate(0, -0px); }   
+ }
+ 
+ .conteudo-secundario {
+@@ -572,11 +581,6 @@ body {
+ -
+ */
+ 
+-/*
+-   Tela de login
+-*/
+-
+-
+ .devise {
+    position: relative;
+    top: 50%;
+@@ -586,6 +590,11 @@ body {
+    justify-content: center;
+ }
+ 
++.devise a {
++   color: rgb(152, 26, 163);
++   text-decoration: none;
++}
++
+ .devise-conteudo {
+    padding: 0px 50px;
+    max-width: 1000px;
+@@ -594,13 +603,31 @@ body {
+ }
+ 
+ .devise-conteudo-imagem{
+-   height: 550px;
+-   margin-right: 50px;
++   animation-name: floating-devise;
++   animation-duration: 10s;
++   animation-iteration-count: infinite;
++   animation-timing-function: ease-in-out;
++   height: 450px;
++   margin-right: 70px;
++   animation-delay: 0s;
++}
++
++@keyframes floating-devise {
++   0% { transform: translate(0,  0px); }
++   25%  { transform: translate(0, 20px); }
++   75%  { transform: translate(0, -20px); }
++   100%   { transform: translate(0, 0px); }   
+ }
+ 
++/*
++   Tela de login
++*/
++
++
++
++
+ 
+ .devise-conteudo-login-view {
+-   margin-right: 15%;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+@@ -623,14 +650,7 @@ body {
+    margin-left: 20%;
+ }
+ 
+-.login-view-titulo-senha {
+-   font-family: 'Sarala', sans-serif;
+-   font-weight: 400;
+-   font-size: 40px;
+-   color: black;
+-   margin-bottom: 10%;
+-   margin-left: 0%;
+-}
++
+ 
+ .login-view-input {
+    min-width: 280px;
+@@ -679,10 +699,7 @@ body {
+    margin-bottom: 10px;
+ }
+ 
+-.devise a {
+-   color: rgb(152, 26, 163);
+-   text-decoration: none;
+-}
++
+ 
+ 
+ 
+@@ -690,27 +707,29 @@ body {
+    Tela de registro
+ */
+ 
+-.registration-view {
+-   position: relative;
+-   top: 50%;
+-   left: 50%;
+-   transform: translate(-50%, -50%);
++.devise-conteudo-registration-view {
+    background: white;
+    border-radius: 40px;
++   box-shadow: 4px 4px 5px 4px rgba(0, 0, 0, 0.25);
+    padding: 60px;
+    width: min-content;
+    align-items: center;
+    color: #2b343b;
++   border: red solid 5px;
++   max-height: 100vh;
+ }
+ 
++.registration-view a {
++   color:#382D42;
++}
+ 
+ .registration-view-titulo {
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+-   font-size: 42px;
++   font-size: 45px;
+    color: black;
+    margin-bottom: 10%;
+-   margin-left: 7%;
++   margin-left: 3%;
+ }
+ 
+ 
+@@ -736,34 +755,7 @@ body {
+    width: 80%;
+    border: none;
+    outline: none;
+-   font-family: 'Righteous', cursive ;
+-   transform: translateY(-10%);
+-   color: #2b343b;
+-}
+-
+-.registration-view-input-name {
+-   min-width: 280px;
+-   height: 43px;
+-   border-radius: 22px;
+-   border: 2px #6f7e8a solid;
+-   padding: 5px;
+-   margin: 0px 0px 12px -5px;
+-}
+-
+-.registration-view-input-name i {
+-   font-size: 1.2em;
+-   padding: 5px;
+-   background: -webkit-linear-gradient(45deg, #474566, #59547c, #6c6391, #8072a8, #9681be, #a389ca, #b190d6, #bf98e2, #c89ae6, #d19ceb, #da9eee, #e4a0f2);
+-   -webkit-background-clip: text;
+-   background-clip: text;
+-   -webkit-text-fill-color: transparent;
+-}
+-
+-.registration-view-input-name input {
+-   width: 80%;
+-   border: none;
+-   outline: none;
+-   font-family: 'Righteous', cursive ;
++   font-family: 'Sarala', sans-serif;
+    transform: translateY(-10%);
+    color: #2b343b;
+ }
+@@ -785,22 +777,30 @@ body {
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
++   margin-bottom: 10px;
+ }
+ 
+-.registration-view a {
+-   color:#382D42;
+-}
+ 
+ 
+-   .loginview-titulos {
+-      font-family: 'Righteous', cursive;
+-      font-weight: 400;
+-      font-size: 30px;
+-      color: black;
+-      margin-bottom: 10%;
+-   }
+ 
+ 
++
++
++
++
++
++
++
++
++.login-view-titulo-senha {
++   font-family: 'Sarala', sans-serif;
++   font-weight: 400;
++   font-size: 40px;
++   color: black;
++   margin-bottom: 10%;
++   margin-left: 0%;
++}
++
+ /*
+ 
+ 
+diff --git a/app/views/devise/registrations/new.html.erb b/app/views/devise/registrations/new.html.erb
+index a9626d0..acdd2b5 100644
+--- a/app/views/devise/registrations/new.html.erb
++++ b/app/views/devise/registrations/new.html.erb
+@@ -6,20 +6,18 @@
+       <%= image_tag asset_path('axoregistro.png'), class:'devise-conteudo-imagem'%>
+     </div>
+ 
+-    <div class="devise-conteudo-login">
+-      <div class="devise-conteudo-login-view">
+-
+-        <h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
++    <div class="devise-conteudo-registration-view">
++      <h2 class="registration-view-titulo"><%= t('.sign_up') %></h2>
+ 
+         <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: registration_path(resource_name) ) do |f| %>
+         <%= render "devise/shared/error_messages", resource: resource %>
+ 
+-        <div class="field">
+-        <%= f.label :"Foto de perfil" %><br />
+-        <div class="login-view-input">
++          <div class="field">
++          <%= f.label :"Foto de perfil" %><br />
++          <div class="registration-view-input">
+             <%= f.file_field :profile_picture %>
+-        </div>
+-      </div>
++          </div>
++          </div>
+ 
+           <div class="field">
+             <%= f.label :email %> <br />
+@@ -29,11 +27,11 @@
+             </div>
+           </div>
+ 
+-           <div class="field">
++          <div class="field">
+             <%= f.label :"Insira seu nome" %> <br />
+-            <div class="registration-view-input-name">
+-            <i class="fa-solid fa-user-pen"></i>
+-            <%= f.text_field :name, autofocus: true, placeholder:"Ex: Gabriella Romano" %></p>
++            <div class="registration-view-input">
++              <i class="fa-solid fa-user-pen"></i>
++              <%= f.text_field :name, autofocus: true, placeholder:"Ex: Gabriella Romano" %></p>
+             </div>
+           </div>
+ 
+@@ -42,10 +40,11 @@
+             <% if @minimum_password_length %>
+             <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+             <% end %><br />
+-              <div class="registration-view-input">
+-                <i class="fa-solid fa-lock"></i>
+-                <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
+-              </div>
++            
++            <div class="registration-view-input">
++              <i class="fa-solid fa-lock"></i>
++              <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
++            </div>
+           </div>
+ 
+           <div class="field">
+@@ -56,10 +55,12 @@
+             </div>
+           </div>
+ 
+-          <div class="login-view-botao">
++          <div class="registration-view-botao">
+             <%= f.submit t('.sign_up') %>
+           </div>
+         <% end %>
+-
+-        <%= render "devise/shared/links" %>
+-        </div>
++         <%= render "devise/shared/links" %>
++    </div>
++ 
++  </div>
++</div>
+diff --git a/app/views/devise/sessions/new.html.erb b/app/views/devise/sessions/new.html.erb
+index a97dbc6..a30a1c4 100644
+--- a/app/views/devise/sessions/new.html.erb
++++ b/app/views/devise/sessions/new.html.erb
+@@ -1,4 +1,3 @@
+-
+ <div class="devise">
+ 
+   <div class="devise-conteudo">
+@@ -7,10 +6,8 @@
+       <%= image_tag asset_path('axologin.png'), class:'devise-conteudo-imagem'%>
+     </div>
+ 
+-    <div class="devise-conteudo-login">
+-      <div class="devise-conteudo-login-view">
+-
+-        <h2 class="login-view-titulo"><%= t('.sign_in')%></h2>
++    <div class="devise-conteudo-login-view">
++      <h2 class="login-view-titulo"><%= t('.sign_in')%></h2>
+ 
+         <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: session_path(resource_name) ) do |f|%>
+         <%= render "devise/shared/error_messages", resource: resource %>
+@@ -46,10 +43,7 @@
+ 
+         <%= render "devise/shared/links" %>
+ 
+-        </div>
+-
+     </div>
+-
+   </div>
+ </div>
+ 
+diff --git a/db/schema.rb b/db/schema.rb
+index 7db6a7e..5fb4137 100644
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -11,9 +11,6 @@
+ # It's strongly recommended that you check this file into your version control system.
+ 
+ ActiveRecord::Schema[7.0].define(version: 2022_11_23_190223) do
+-  # These are extensions that must be enabled in order to support this database
+-  enable_extension "plpgsql"
+-
+   create_table "active_storage_attachments", force: :cascade do |t|
+     t.string "name", null: false
+     t.string "record_type", null: false
+@@ -43,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_190223) do
+   end
+ 
+   create_table "messages", force: :cascade do |t|
+-    t.bigint "user_id", null: false
+-    t.bigint "room_id", null: false
++    t.integer "user_id", null: false
++    t.integer "room_id", null: false
+     t.text "body"
+     t.datetime "created_at", null: false
+     t.datetime "updated_at", null: false
+@@ -53,8 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_190223) do
+   end
+ 
+   create_table "room_users", force: :cascade do |t|
+-    t.bigint "user_id", null: false
+-    t.bigint "room_id"
++    t.integer "user_id", null: false
++    t.integer "room_id"
+     t.datetime "created_at", null: false
+     t.datetime "updated_at", null: false
+     t.index ["room_id"], name: "index_room_users_on_room_id"

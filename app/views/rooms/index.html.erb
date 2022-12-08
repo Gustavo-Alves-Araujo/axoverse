@@ -1,27 +1,25 @@
-<div class="murilo">
-
-<header class="cabecalho"> 
-        <%= link_to root_path do %>
-            <%= image_tag asset_path('logoaxo.png'), class:'cabecalho-logo'%>
-        <% end %>
-        <h5> <%= current_user.email %></h5>
-        <nav class="cabecalho-menu">
-          <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
-        </nav>
-</header>
-
-
-<div>
-  <div>
-    <%= render @rooms %>
-  </div>
-
-  <div>
-    <h1> Lista de usuários para conversar </h1>
-      <% @users_to_chat_with.each do |user| %>
-      <%= render 'user_to_chat_with', user: user %>
-  </div>
+<%= stylesheet_link_tag "chat.css", :media => "all" %>
+<style>
+  <%= ".msg-#{current_user&.id}" %> {
+    background-color: rgb(143, 209, 117);
+    align-self: flex-end;
+    color: white !important;
+  }
+</style>
 </div>
-
-<% end %>
+<div class="chats-container d-flex p-3">
+  <div class="users-list me-4">
+    <% @rooms.each do |room| %>
+      <%= button_to room_path(room), method: :get, class: "btn btn-danger" do %>
+        <h3>
+          <%= contact_info(room).name %>
+        </h3>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="chat-area bg-white">
+    <% if @messages %>
+      <%= render 'messages/messages', messages: @messages %>
+    <% end %>
+  </div>
 </div>

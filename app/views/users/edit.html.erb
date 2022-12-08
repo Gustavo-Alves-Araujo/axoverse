@@ -1,0 +1,91 @@
+</header>
+<div class="nu">
+  <div class="nu-conteudo">
+    <div class="nu-conteudo-view">
+      <h2 class="nu-titulo">Crie seu perfil</h2>
+      <%= form_with model: @user do |f| %>
+        <div class="nu-name-age">
+          <div class="nu-nome">
+            <%= f.label :"Digite o seu nome"%>
+            <div class="nu-input-name">
+              <i class="fa-solid fa-pencil"></i>
+              <%= f.text_field :name, required:'true', maxLength:'20', placeholder:'Ex: Gabriella Romano'%>
+            </div>
+          </div>
+          <div class="nu-idade">
+            <%= f.label :"Idade"%>
+            <div class="nu-input-age">
+              <%= f.number_field :age, required:'true', placeholder:'Ex: 17', id:'rangenumber', min:'1', max:'40'%>
+            </div>
+          </div>
+        </div>
+        <div class="field-bio">
+          <%= f.label :"Biografia (limite de 264 caracteres)"%>
+          <div class="nu-input-bio">
+            <%= f.text_area :biografia, required:'true', maxLength:'264', cols:'42', rows:'5' %>
+          </div>
+        </div>
+        <div class="nu-file-title"> Selecione sua foto de perfil <i class="fa-solid fa-file-arrow-up"></i></div>
+        <div class="field-picture">
+          <%= f.label :"Enviar imagem", for:'user_profile_picture'%><br />
+          <%= f.file_field :profile_picture, accept: 'image/png, image/gif, image/jpeg' %>
+        </div>
+        <div class="nu-botoes">
+          <%= f.submit "Finalizar perfil" %>
+        </div>
+      </div>
+      <div class="nu-card">
+        <div class="nu-user-recomendado">
+          <%= profile_picture_of(current_user) %>
+          <div class="nu-user-recomendado-profile">
+            <div class ="nu-user-recomendado-name">
+              <div class="js-name-preview"></div>
+            </div>
+            <div class ="nu-user-recomendado-age">
+              <span class="js-age-preview"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>
+  const nameField = document.querySelector('#user_name')
+  const ageField = document.querySelector('#rangenumber')
+  const nameFieldPreview = document.querySelector('.js-name-preview')
+  const ageFieldPreview = document.querySelector('.js-age-preview')
+
+  const imageField = document.querySelector("#user_profile_picture")
+  const imagePreview = document.querySelector(".nu-user-recomendado").querySelector('img');
+
+  nameField.addEventListener('input', (event) => {
+    nameFieldPreview.innerText = event.target.value
+  })
+
+  ageField.addEventListener('input', (event) => {
+    ageFieldPreview.innerText = event.target.value
+  })
+
+  imageField.addEventListener('input', (event) => {
+    const uploadedFile = event.target.files[0];
+
+    const url = URL.createObjectURL(uploadedFile);
+
+    imagePreview.src = url
+  })
+</script>
+<div class="popup">
+  <div class="popup-container">
+    <h1 class="popup-titulo"> Já está acabando ❤</h1>
+    <p> Coloque suas informações no perfil para que outros alunos te encontrem.</p>
+    <br/>
+    <p class="popup-obs"> Obs: Você poderá mudar isso mais tarde.</p>
+    <button class="close-popup" onclick="popupClose()">Entendi!</button>
+  </div>
+</div>
+<script>
+  popupClose = function() {
+    document.querySelector(".popup").classList.add("closed");
+  }
+</script>
